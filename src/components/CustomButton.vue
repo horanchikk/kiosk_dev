@@ -40,7 +40,7 @@ const {
 } = defineProps<{
   big?: string | boolean;
   col?: string | boolean;
-  link?: string | boolean;
+  link?: string;
   img?: Image;
 }>();
 

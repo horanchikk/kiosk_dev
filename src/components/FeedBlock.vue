@@ -24,7 +24,7 @@ interface Image {
   alt?: string;
 }
 
-let { title, date, description, img, currentIndex } = defineProps<{
+let { title, date, description, img } = defineProps<{
   title: string;
   date: string;
   description: string;
