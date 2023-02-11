@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Monda:wght@700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    font-family: "Monda", sans-serif;
+}
+
