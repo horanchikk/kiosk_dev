@@ -1,13 +1,9 @@
-<template>
-
-</template>
+<template></template>
 
 <script>
 export default {
-  name: "FeedPage"
-}
+  name: "FeedPage",
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
