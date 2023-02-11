@@ -16,24 +16,19 @@
       v-for="(image, index) in images"
       :key="index"
       :virtualIndex="index"
-      class="rounded-[30px]"
+      class="rounded-lg"
     >
-      <img
-        :src="image.link"
-        :alt="image.alt"
-        class="object-cover rounded-[30px]"
-      />
+      <img :src="image.link" :alt="image.alt" class="object-cover rounded-lg" />
     </swiper-slide>
     <swiper-slide></swiper-slide>
   </swiper>
 </template>
 
 <script setup lang="ts">
-import { Virtual, Autoplay } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/vue";
-
 import "swiper/css";
 import "swiper/css/zoom";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { Virtual, Autoplay } from "swiper";
 
 interface Image {
   link: string;

@@ -2,7 +2,11 @@
   <main class="w-full h-full flex flex-col overflow-hidden">
     <div class="w-screen h-[700px] flex items-center justify-center">
       <div class="w-[2900px] h-fit">
-        <CustomSwiper :images="images" />
+        <CustomSwiper
+          :images="images"
+          class="show"
+          style="animation-delay: 200ms"
+        />
       </div>
     </div>
     <div class="flex-auto grid grid-cols-3 gap-10 p-5">
@@ -13,6 +17,9 @@
           src: './book.svg',
           alt: 'Новости',
         }"
+        link="/feed"
+        class="show"
+        style="animation-delay: 300ms"
         >Новости</CustomButton
       >
       <CustomButton
@@ -22,6 +29,8 @@
           src: './calendar.svg',
           alt: 'Расписание',
         }"
+        class="show"
+        style="animation-delay: 300ms"
         >Расписание</CustomButton
       >
       <CustomButton
@@ -31,6 +40,8 @@
           src: './gallery.svg',
           alt: 'Галерея',
         }"
+        class="show"
+        style="animation-delay: 300ms"
         >Галерея</CustomButton
       >
       <CustomButton
@@ -39,7 +50,8 @@
           src: './map.svg',
           alt: 'Интерактивная карта',
         }"
-        class="col-span-3 gap-5"
+        class="col-span-3 gap-5 show"
+        style="animation-delay: 400ms"
         >Интерактивная карта</CustomButton
       >
       <CustomButton
@@ -49,16 +61,20 @@
           src: './QRVK.svg',
           alt: 'QR-код ВКонтакте',
         }"
+        class="show"
+        style="animation-delay: 500ms"
         >ВКонтакте</CustomButton
       >
       <CustomButton
         big
         col
         :img="{
-          src: './QRTG.svg',
-          alt: 'QR-код Telegram',
+          src: './QRMainSite.svg',
+          alt: 'QR-код сайт',
         }"
-        >Телеграм</CustomButton
+        class="show"
+        style="animation-delay: 500ms"
+        >Наш сайт</CustomButton
       >
       <CustomButton
         big
@@ -67,6 +83,8 @@
           src: './QRGooglePlay.svg',
           alt: 'QR-код на приложение',
         }"
+        class="show"
+        style="animation-delay: 500ms"
         >Приложение</CustomButton
       >
     </div>

@@ -7,3 +7,18 @@
 * {
   font-family: "Monda", sans-serif;
 }
+
+@keyframes opacityAnim {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.show {
+  opacity: 0;
+  animation: opacityAnim 300ms ease-out;
+  animation-fill-mode: forwards;
+}
