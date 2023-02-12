@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Monda:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Monda&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -17,8 +18,38 @@
   }
 }
 
+@keyframes downAnim {
+  0% {
+    transform: translateY(-60px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes upAnim {
+  0% {
+    transform: translateY(60px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
 .show {
   opacity: 0;
   animation: opacityAnim 300ms ease-out;
+  animation-fill-mode: forwards;
+}
+
+.show-down {
+  transform: translateY(-60px);
+  animation: downAnim 500ms ease-out;
+  animation-fill-mode: forwards;
+}
+
+.show-up {
+  transform: translateY(60px);
+  animation: downUp 1s cubic-bezier(0.16, 1, 0.3, 1);
   animation-fill-mode: forwards;
 }

@@ -23,7 +23,7 @@
         style="transform: translateZ(-10px) scale(2); z-index: -1"
       />
     </header>
-    <div class="flex flex-col w-full">
+    <div class="flex flex-col w-full show-up">
       <div class="flex flex-col gap-10 bg-[#F2F2F2] rounded-2xl w-full p-10">
         <div class="flex justify-between">
           <p class="font-bold">{{ feed.title }}</p>
@@ -51,9 +51,7 @@ const loading = ref(true);
 onMounted(() => {
   axios
     .get(
-      `https://mob.kansk-tc.ru/ktc-api/news/id${
-        router.currentRoute.value.path.split("/")[3]
-      }`
+      `https://mob.kansk-tc.ru/ktc-api/news/id${router.currentRoute.value.params.id}`
     )
     .then((res) => {
       feed.value = res.data;

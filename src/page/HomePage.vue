@@ -29,6 +29,7 @@
           src: './calendar.svg',
           alt: 'Расписание',
         }"
+        link="/timetable/STChoose"
         class="show"
         style="animation-delay: 300ms"
         >Расписание</CustomButton

@@ -1,10 +1,10 @@
 <template>
   <div class="w-screen h-screen bg-[#F2F2F2] flex flex-col">
-    <div class="fixed top-0 left-0 z-50 w-screen">
+    <div class="fixed top-0 left-0 z-50 w-screen show-down">
       <DynamicHeader />
     </div>
 
-    <main class="h-screen overflow-y-scroll py-24">
+    <main class="h-full py-24">
       <router-view />
     </main>
 

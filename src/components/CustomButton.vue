@@ -43,6 +43,4 @@ const {
   link?: string;
   img?: Image;
 }>();
-
-console.log(link);
 </script>
