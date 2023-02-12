@@ -12,7 +12,9 @@ interface Feed {
   current: News[] | undefined | null;
 }
 
-let cachedFeed: News[] = JSON.parse(localStorage.getItem("feedStorage"));
+let cachedFeed: News[] = JSON.parse(
+  localStorage.getItem("feedStorage") || "{}"
+);
 
 export const useFeed = reactive({
   feed: reactive<Feed>({

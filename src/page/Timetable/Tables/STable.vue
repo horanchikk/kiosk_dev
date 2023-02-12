@@ -60,13 +60,4 @@ watch(
     console.log(data.value);
   }
 );
-
-const setDay = computed((day) => {
-  switch (day) {
-    case 'ПН':
-      return 'Понедельник'
-  }
-})
-
-console.log(setDay('ПН'))
 </script>
