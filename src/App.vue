@@ -30,7 +30,7 @@ setInterval(() => {
   if (useAuth().authorized) {
     setInterval(() => {
       useAuth().authorized = false;
-    }, 20000);
+    }, 60000);
     console.log("authorized");
   }
 }, 5000);
