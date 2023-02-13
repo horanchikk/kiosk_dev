@@ -22,7 +22,6 @@
 <script setup lang="ts">
 import CustomSvg from "./components/CustomSvg.vue";
 import DynamicHeader from "./components/DynamicHeader.vue";
-import { onUpdated } from "vue";
 import { useAuth } from "./store/auth";
 import router from "./router";
 

@@ -3,14 +3,20 @@
     class="w-full h-full flex flex-col gap-10 items-center justify-center"
     @submit.prevent="login(passwd)"
   >
+    <p class="text-2xl font-bold">Ты что здесь забыл? Выйди отсюда</p>
     <input
-      type="text"
-      class="border-0 outline-0 text-black text-3xl px-5 py-4 w-96"
+      type="password"
+      class="border-0 outline-0 text-black text-4xl px-5 py-4 w-1/3 h-24 shadow-xl rounded-2xl"
       placeholder="Введите пароль"
       v-model="passwd"
     />
-    <div v-if="passwdNotCorrect" class="text-red-400">Неверный пароль</div>
-    <CustomButton type="submit" big>Войти</CustomButton>
+    <div v-show="passwdNotCorrect" class="flex flex-col gap-2 show">
+      <img src="../assets/image.png" alt="мишаня)" />
+      <p class="text-2xl text-center font-bold text-red-400">
+        Неверный пароль)
+      </p>
+    </div>
+    <CustomButton type="submit" class="w-1/3" big>Войти</CustomButton>
   </form>
 </template>
 
@@ -24,10 +30,11 @@ const passwd = ref("");
 const passwdNotCorrect = ref(false);
 
 function login(password) {
-  if (password === "her228") {
+  if (password === "her1337") {
     useAuth().authorized = true;
     router.push("/home");
   } else {
+    useAuth().authorized = false;
     passwdNotCorrect.value = true;
   }
 }
