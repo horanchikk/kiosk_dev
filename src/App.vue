@@ -25,7 +25,6 @@
     class="w-screen h-screen bg-[#F2F2F2] flex items-center justify-center font-bold text-[90px]"
   >
     <p>Ведутся технические работы ☠</p>
-    <p class="text-sm font-bold">ethosa lox</p>
   </div>
 </template>
 
