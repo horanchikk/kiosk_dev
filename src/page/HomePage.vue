@@ -1,12 +1,92 @@
 <template>
-  <main class="w-full h-full flex flex-col overflow-hidden">
-    <div class="w-screen h-[1500px] flex items-center justify-center">
-      <div class="w-[5800px] h-fit">
+  <main class="w-full h-full flex flex-col gap-5 py-5 overflow-hidden">
+    <div class="w-screen h-[1500px] flex gap-5 items-center justify-center">
+      <div class="w-[5800px] h-full">
         <CustomSwiper
-          :images="images"
-          class="show"
+          :images="useFeed.images"
+          class="show h-full"
           style="animation-delay: 200ms"
+          v-show="useFeed.images.length > 0"
         />
+        <div
+          v-show="useFeed.images.length <= 0"
+          class="show h-full w-full flex items-center justify-center"
+        >
+          <svg
+            width="200"
+            height="220"
+            viewBox="0 0 120 30"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="black"
+          >
+            <circle cx="15" cy="15" r="15">
+              <animate
+                attributeName="r"
+                from="15"
+                to="15"
+                begin="0s"
+                dur="0.8s"
+                values="15;9;15"
+                calcMode="linear"
+                repeatCount="indefinite"
+              />
+              <animate
+                attributeName="fill-opacity"
+                from="1"
+                to="1"
+                begin="0s"
+                dur="0.8s"
+                values="1;.5;1"
+                calcMode="linear"
+                repeatCount="indefinite"
+              />
+            </circle>
+            <circle cx="60" cy="15" r="9" fill-opacity="0.3">
+              <animate
+                attributeName="r"
+                from="9"
+                to="9"
+                begin="0s"
+                dur="0.8s"
+                values="9;15;9"
+                calcMode="linear"
+                repeatCount="indefinite"
+              />
+              <animate
+                attributeName="fill-opacity"
+                from="0.5"
+                to="0.5"
+                begin="0s"
+                dur="0.8s"
+                values=".5;1;.5"
+                calcMode="linear"
+                repeatCount="indefinite"
+              />
+            </circle>
+            <circle cx="105" cy="15" r="15">
+              <animate
+                attributeName="r"
+                from="15"
+                to="15"
+                begin="0s"
+                dur="0.8s"
+                values="15;9;15"
+                calcMode="linear"
+                repeatCount="indefinite"
+              />
+              <animate
+                attributeName="fill-opacity"
+                from="1"
+                to="1"
+                begin="0s"
+                dur="0.8s"
+                values="1;.5;1"
+                calcMode="linear"
+                repeatCount="indefinite"
+              />
+            </circle>
+          </svg>
+        </div>
       </div>
     </div>
     <div class="flex-auto grid grid-cols-3 gap-10 p-5">
@@ -96,27 +176,5 @@
 <script setup lang="ts">
 import CustomSwiper from "../components/CustomSwiper.vue";
 import CustomButton from "../components/CustomButton.vue";
-
-const images = [
-  {
-    link: "https://sun1.sibirix.userapi.com/impg/abE9Ym2iJ1UWwWaDWO_u623AdifXaY9dhf6w_w/YK9a9SNRRjc.jpg?size=2560x1707&quality=96&sign=286d97992caa574888933b17dd691e35&type=album",
-    alt: "Gudkov1",
-  },
-  {
-    link: "https://sun1.sibirix.userapi.com/impg/abE9Ym2iJ1UWwWaDWO_u623AdifXaY9dhf6w_w/YK9a9SNRRjc.jpg?size=2560x1707&quality=96&sign=286d97992caa574888933b17dd691e35&type=album",
-    alt: "Gudkov2",
-  },
-  {
-    link: "https://sun1.sibirix.userapi.com/impg/abE9Ym2iJ1UWwWaDWO_u623AdifXaY9dhf6w_w/YK9a9SNRRjc.jpg?size=2560x1707&quality=96&sign=286d97992caa574888933b17dd691e35&type=album",
-    alt: "Gudkov3",
-  },
-  {
-    link: "https://sun1.sibirix.userapi.com/impg/abE9Ym2iJ1UWwWaDWO_u623AdifXaY9dhf6w_w/YK9a9SNRRjc.jpg?size=2560x1707&quality=96&sign=286d97992caa574888933b17dd691e35&type=album",
-    alt: "Gudkov4",
-  },
-  {
-    link: "https://sun1.sibirix.userapi.com/impg/abE9Ym2iJ1UWwWaDWO_u623AdifXaY9dhf6w_w/YK9a9SNRRjc.jpg?size=2560x1707&quality=96&sign=286d97992caa574888933b17dd691e35&type=album",
-    alt: "Gudkov5",
-  },
-];
+import { useFeed } from "../store/useFeed";
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div
     class="w-screen h-screen bg-[#F2F2F2] flex flex-col"
-    v-if="devMode().devStates.main === false"
+    v-if="dev().devStates.main === false"
   >
     <div class="fixed top-0 left-0 z-50 w-screen show-down">
       <DynamicHeader />
@@ -21,16 +21,89 @@
     </footer>
   </div>
   <div
-    v-else-if="devMode().devStates.main === undefined"
+    v-else-if="dev().devStates.main === undefined"
     class="w-screen h-screen bg-[#F2F2F2] flex items-center justify-center font-bold text-[90px]"
   >
-    <p>Пожалуйста, подождите...</p>
+    <svg
+      width="200"
+      height="200"
+      viewBox="0 0 120 30"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="black"
+    >
+      <circle cx="15" cy="15" r="15">
+        <animate
+          attributeName="r"
+          from="15"
+          to="15"
+          begin="0s"
+          dur="0.8s"
+          values="15;9;15"
+          calcMode="linear"
+          repeatCount="indefinite"
+        />
+        <animate
+          attributeName="fill-opacity"
+          from="1"
+          to="1"
+          begin="0s"
+          dur="0.8s"
+          values="1;.5;1"
+          calcMode="linear"
+          repeatCount="indefinite"
+        />
+      </circle>
+      <circle cx="60" cy="15" r="9" fill-opacity="0.3">
+        <animate
+          attributeName="r"
+          from="9"
+          to="9"
+          begin="0s"
+          dur="0.8s"
+          values="9;15;9"
+          calcMode="linear"
+          repeatCount="indefinite"
+        />
+        <animate
+          attributeName="fill-opacity"
+          from="0.5"
+          to="0.5"
+          begin="0s"
+          dur="0.8s"
+          values=".5;1;.5"
+          calcMode="linear"
+          repeatCount="indefinite"
+        />
+      </circle>
+      <circle cx="105" cy="15" r="15">
+        <animate
+          attributeName="r"
+          from="15"
+          to="15"
+          begin="0s"
+          dur="0.8s"
+          values="15;9;15"
+          calcMode="linear"
+          repeatCount="indefinite"
+        />
+        <animate
+          attributeName="fill-opacity"
+          from="1"
+          to="1"
+          begin="0s"
+          dur="0.8s"
+          values="1;.5;1"
+          calcMode="linear"
+          repeatCount="indefinite"
+        />
+      </circle>
+    </svg>
   </div>
   <div
     v-else
     class="w-screen h-screen bg-[#F2F2F2] flex items-center justify-center font-bold text-[90px]"
   >
-    <p>Ведутся технические работы ☠</p>
+    <p>Ведётся активная разработка 😁</p>
   </div>
 </template>
 
@@ -38,14 +111,53 @@
 import CustomSvg from "./components/CustomSvg.vue";
 import DynamicHeader from "./components/DynamicHeader.vue";
 import axios from "axios";
-import { devMode } from "./store/devMode";
+import { dev } from "./store/devMode";
+import { useFeed } from "./store/useFeed";
+
+const data = axios.get("http://mob.kansk-tc.ru/modes");
+data.then((res) => {
+  dev().devStates = res.data.response;
+});
+
+const reqWS = new WebSocket("ws://mob.kansk-tc.ru/listen");
+
+reqWS.onopen = function (e) {
+  dev().log("ws", "[open] Соединение установлено");
+};
+
+reqWS.onmessage = function (event) {
+  dev().devStates = JSON.parse(event.data);
+};
+
+reqWS.onclose = function (event) {
+  if (event.wasClean) {
+    dev().log(
+      "ws",
+      `[close] Соединение закрыто чисто, код=${event.code} причина=${event.reason}`
+    );
+  } else {
+    dev().log("ws", "[close] Соединение прервано");
+  }
+};
+
+reqWS.onerror = function (error) {
+  dev().log("ws", `[error] ${error}`);
+};
 
 setInterval(() => {
-  const data = axios.get("http://mob.kansk-tc.ru/modes");
-  data.then((res) => {
-    devMode().devStates = res.data.response;
-  });
-}, 2500);
+  useFeed.images = [];
+
+  axios
+    .get("http://mob.kansk-tc.ru/ktc-api/gallery/albums/rand?count=10")
+    .then((res) => {
+      res.data.forEach((el) => {
+        useFeed.images.push({
+          link: el.img.split("_mini").join(""),
+          alt: el.title,
+        });
+      });
+    });
+}, 3600000);
 </script>
 
 <style></style>

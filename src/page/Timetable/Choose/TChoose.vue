@@ -42,7 +42,7 @@
         </defs>
       </svg>
     </section>
-    <section class="flex-auto w-full flex flex-col gap-5 overflow-y-scroll">
+    <section class="w-full grid grid-cols-2 gap-5 overflow-y-scroll">
       <CustomButton
         big
         v-for="(teacher, index) in result"

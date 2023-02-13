@@ -12,7 +12,7 @@
     <p class="text-[40px] font-bold">{{ header.time }}</p>
     <p
       class="opacity-30 text-[40px]"
-      v-if="devMode().devStates.dev"
+      v-if="dev().devStates.dev"
       @click="showDebug = !showDebug"
     >
       dev build
@@ -57,8 +57,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, watch } from "vue";
-import { devMode } from "../store/devMode";
+import { ref, onMounted } from "vue";
+import { dev } from "../store/devMode";
+
 import axios from "axios";
 import moment from "moment-timezone";
 import "moment/dist/locale/ru";

@@ -1,7 +1,12 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
 
-export const devMode = defineStore("devMode", () => {
+interface Message {
+  from: string;
+  msg: string;
+}
+
+export const dev = defineStore("dev", () => {
   const devStates = ref<{
     dev: boolean | undefined;
     main: boolean | undefined;
@@ -10,5 +15,11 @@ export const devMode = defineStore("devMode", () => {
     main: undefined,
   });
 
-  return { devStates };
+  const debug = ref<Message[]>([]);
+
+  function log(fromLog: string, msgLog: string) {
+    debug.value.push({ from: fromLog, msg: msgLog });
+  }
+
+  return { devStates, debug, log };
 });

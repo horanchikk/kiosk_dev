@@ -1,4 +1,4 @@
-import { reactive } from "vue";
+import { reactive, ref } from "vue";
 
 interface News {
   id: number;
@@ -20,6 +20,8 @@ export const useFeed = reactive({
   feed: reactive<Feed>({
     current: undefined,
   }),
+
+  images: ref([]),
 
   updateFeed: function (data: News[] | undefined) {
     if (cachedFeed === null && data !== undefined) {

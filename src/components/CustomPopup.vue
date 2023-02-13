@@ -33,6 +33,15 @@
             <p>{{ index }} -</p>
             <p>{{ item }}</p>
           </div>
+          <p class="text-5xl font-bold my-10 text-center">Logging</p>
+          <div class="border-[1px] border-green-300 w-full my-10"></div>
+          <div
+            v-for="(item, index) in dev().debug"
+            :key="index"
+            class="flex gap-5 justify-center my-2 h-fit"
+          >
+            <p>{{ item.from }} => {{ item.msg }}</p>
+          </div>
         </div>
       </div>
     </div>
@@ -40,8 +49,9 @@
 </template>
 
 <script setup lang="ts">
-import { isObject } from "@vue/shared";
 import { ref } from "vue";
+import { dev } from "../store/devMode";
+
 const { show } = defineProps<{
   show: boolean;
 }>();

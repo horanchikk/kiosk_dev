@@ -19,19 +19,20 @@
         class="flex flex-col bg-white shadow-lg rounded-md gap-2 text-3xl p-5"
       >
         <div
-          class="flex justify-between p-3 font-bold"
           v-for="(lesson, indexLesson) in day.lessons"
           :key="indexLesson"
         >
-          <p class="w-1/4 flex gap-3 items-center">
-            <p>{{ indexLesson + 1 }}</p>
-          </p>
-          <p class="w-2/4 flex items-center justify-center">
-            {{ lesson.title === '' ? 'Окно' : lesson.title }}
-          </p>
-          <div class="w-1/4 flex flex-col gap-2 items-end justify-center">
-            <p>{{ lesson.group }}</p>
-            <p class="font-normal">{{ lesson.classroom }}</p>
+          <div v-if="lesson.title !== ''" class="w-full h-full flex justify-between p-3 font-bold">
+            <p class="w-1/4 flex gap-3 items-center">
+              <p>{{ indexLesson + 1 }}</p>
+            </p>  
+            <p class="w-2/4 flex text-center items-center justify-center">
+              {{ lesson.title }}
+            </p>
+            <div class="w-1/4 flex flex-col gap-2 items-end justify-center">
+              <p>{{ lesson.group }}</p>
+              <p class="font-normal">{{ lesson.classroom }}</p>
+            </div>
           </div>
         </div>
       </div>

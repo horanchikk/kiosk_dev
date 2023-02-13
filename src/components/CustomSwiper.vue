@@ -9,7 +9,7 @@
       delay: 5000,
       disableOnInteraction: false,
     }"
-    class="w-full h-full"
+    class="w-full"
   >
     <swiper-slide class="shadow-md"></swiper-slide>
     <swiper-slide
@@ -21,7 +21,7 @@
       <img
         :src="image.link"
         :alt="image.alt"
-        class="object-cover rounded-lg drop-shadow-xl"
+        class="object-cover rounded-lg drop-shadow-xl h-full w-full"
       />
     </swiper-slide>
     <swiper-slide class="shadow-md"></swiper-slide>
