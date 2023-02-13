@@ -27,11 +27,13 @@ import { useAuth } from "./store/auth";
 import router from "./router";
 
 setInterval(() => {
-  useAuth().authorized = false;
-}, 60000);
-
-setInterval(() => {
-  useAuth().authorized ? router.push("/") : undefined;
+  useAuth().authorized ? undefined : router.push("/");
+  if (useAuth().authorized) {
+    setInterval(() => {
+      useAuth().authorized = false;
+    }, 20000);
+    console.log("authorized");
+  }
 }, 5000);
 </script>
 

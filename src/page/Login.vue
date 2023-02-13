@@ -24,7 +24,7 @@ const passwd = ref("");
 const passwdNotCorrect = ref(false);
 
 function login(password) {
-  if (password === "her") {
+  if (password === "her228") {
     useAuth().authorized = true;
     router.push("/home");
   } else {
