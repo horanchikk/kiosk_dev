@@ -3,11 +3,11 @@ import { ref } from "vue";
 
 export const devMode = defineStore("devMode", () => {
   const devStates = ref<{
-    dev: boolean;
-    main: boolean;
+    dev: boolean | undefined;
+    main: boolean | undefined;
   }>({
-    dev: false,
-    main: true,
+    dev: undefined,
+    main: undefined,
   });
 
   return { devStates };

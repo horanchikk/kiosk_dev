@@ -1,7 +1,7 @@
 <template>
   <div
     class="w-screen h-screen bg-[#F2F2F2] flex flex-col"
-    v-if="!devMode().devStates.main"
+    v-if="devMode().devStates.main === false"
   >
     <div class="fixed top-0 left-0 z-50 w-screen show-down">
       <DynamicHeader />
@@ -19,6 +19,12 @@
         <CustomSvg infocircle />
       </div>
     </footer>
+  </div>
+  <div
+    v-else-if="devMode().devStates.main === undefined"
+    class="w-screen h-screen bg-[#F2F2F2] flex items-center justify-center font-bold text-[90px]"
+  >
+    <p>Пожалуйста, подождите...</p>
   </div>
   <div
     v-else
