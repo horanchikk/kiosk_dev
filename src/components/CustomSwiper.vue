@@ -11,16 +11,20 @@
     }"
     class="w-full h-full"
   >
-    <swiper-slide></swiper-slide>
+    <swiper-slide class="shadow-md"></swiper-slide>
     <swiper-slide
       v-for="(image, index) in images"
       :key="index"
       :virtualIndex="index"
       class="rounded-lg"
     >
-      <img :src="image.link" :alt="image.alt" class="object-cover rounded-lg" />
+      <img
+        :src="image.link"
+        :alt="image.alt"
+        class="object-cover rounded-lg drop-shadow-xl"
+      />
     </swiper-slide>
-    <swiper-slide></swiper-slide>
+    <swiper-slide class="shadow-md"></swiper-slide>
   </swiper>
 </template>
 

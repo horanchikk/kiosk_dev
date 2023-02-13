@@ -1,13 +1,16 @@
 <template>
+  <CustomPopup :show="showDebug" />
+
   <header
     class="flex justify-between text-sm items-center h-24 w-full px-24 shadow-xl bg-[#F2F2F2]"
-    v-if="$route.name === 'Главная страница'"
+    v-if="$route.name === 'Главная страница' || $route.name === 'Авторизация'"
   >
     <div class="text-3xl font-bold flex gap-8 items-center">
       <CustomSvg college-icon />
       <p>{{ header.week }}, {{ header.date }}</p>
     </div>
-    <p class="opacity-30">dev build</p>
+    <p class="text-3xl font-bold">{{ header.time }}</p>
+    <p class="opacity-30 text-3xl" @click="showDebug = !showDebug">dev build</p>
     <div v-if="header.temp === undefined">
       <CustomSvg loader />
     </div>
@@ -48,10 +51,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref, onMounted, watch } from "vue";
 import axios from "axios";
 import moment from "moment-timezone";
 import "moment/dist/locale/ru";
+
+import CustomPopup from "./CustomPopup.vue";
 
 import CustomSvg from "../components/CustomSvg.vue";
 
@@ -63,6 +68,7 @@ interface Header {
 }
 
 const header = ref<Header>({});
+const showDebug = ref<boolean>(false);
 
 const update = {
   datetime: () => {

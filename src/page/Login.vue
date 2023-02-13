@@ -11,7 +11,6 @@
       v-model="passwd"
     />
     <div v-show="passwdNotCorrect" class="flex flex-col gap-2 show">
-      <img src="../assets/image.png" alt="мишаня)" />
       <p class="text-2xl text-center font-bold text-red-400">
         Неверный пароль)
       </p>

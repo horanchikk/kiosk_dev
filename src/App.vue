@@ -31,9 +31,11 @@ setInterval(() => {
     setInterval(() => {
       useAuth().authorized = false;
     }, 60000);
-    console.log("authorized");
+    console.log("auth");
+  } else {
+    console.log("un auth");
   }
 }, 5000);
 </script>
 
-<style scoped></style>
+<style></style>
