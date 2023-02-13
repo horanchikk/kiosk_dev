@@ -49,8 +49,6 @@ const { show } = defineProps<{
 const ok = ref({});
 
 for (var i in window) ok.value[i] = window[i];
-
-console.log(ok.value);
 </script>
 
 <style>

@@ -5,17 +5,23 @@
     class="flex justify-between text-sm items-center h-24 w-full px-24 shadow-xl bg-[#F2F2F2]"
     v-if="$route.name === 'Главная страница' || $route.name === 'Авторизация'"
   >
-    <div class="text-3xl font-bold flex gap-8 items-center">
+    <div class="text-[40px] font-bold flex gap-8 items-center">
       <CustomSvg college-icon />
       <p>{{ header.week }}, {{ header.date }}</p>
     </div>
-    <p class="text-3xl font-bold">{{ header.time }}</p>
-    <p class="opacity-30 text-3xl" @click="showDebug = !showDebug">dev build</p>
+    <p class="text-[40px] font-bold">{{ header.time }}</p>
+    <p
+      class="opacity-30 text-[40px]"
+      v-if="devMode().devStates.dev"
+      @click="showDebug = !showDebug"
+    >
+      dev build
+    </p>
     <div v-if="header.temp === undefined">
       <CustomSvg loader />
     </div>
     <div v-else>
-      <div class="flex gap-4 items-center text-3xl" v-if="header.temp">
+      <div class="flex gap-4 items-center text-[40px]" v-if="header.temp">
         <p>{{ header.temp }}°C</p>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -39,12 +45,12 @@
     v-else
     class="flex justify-between text-sm items-center h-24 w-full px-24 shadow-xl bg-[#F2F2F2]"
   >
-    <div class="text-3xl font-bold flex gap-8 items-center">
+    <div class="text-[40px] font-bold flex gap-8 items-center">
       <CustomSvg arrow-right @click="$router.back()" />
       <p>{{ $route.name }}</p>
     </div>
     <p class="opacity-30">dev build</p>
-    <div class="flex gap-4 items-center text-3xl">
+    <div class="flex gap-4 items-center text-[40px]">
       <p>{{ header.time }}</p>
     </div>
   </header>
@@ -52,6 +58,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted, watch } from "vue";
+import { devMode } from "../store/devMode";
 import axios from "axios";
 import moment from "moment-timezone";
 import "moment/dist/locale/ru";

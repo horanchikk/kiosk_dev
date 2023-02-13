@@ -1,7 +1,7 @@
 <template>
   <main class="w-full h-full flex flex-col overflow-hidden">
-    <div class="w-screen h-[700px] flex items-center justify-center">
-      <div class="w-[2900px] h-fit">
+    <div class="w-screen h-[1500px] flex items-center justify-center">
+      <div class="w-[5800px] h-fit">
         <CustomSwiper
           :images="images"
           class="show"
@@ -18,7 +18,7 @@
           alt: 'Новости',
         }"
         link="/feed"
-        class="show"
+        class="show text-[90px]"
         style="animation-delay: 300ms"
         >Новости</CustomButton
       >
@@ -30,7 +30,7 @@
           alt: 'Расписание',
         }"
         link="/timetable/STChoose"
-        class="show"
+        class="show text-[90px]"
         style="animation-delay: 300ms"
         >Расписание</CustomButton
       >
@@ -41,17 +41,18 @@
           src: './gallery.svg',
           alt: 'Галерея',
         }"
-        class="show"
+        class="show text-[90px]"
         style="animation-delay: 300ms"
         >Галерея</CustomButton
       >
       <CustomButton
         big
+        col
         :img="{
           src: './map.svg',
           alt: 'Интерактивная карта',
         }"
-        class="col-span-3 gap-5 show"
+        class="col-span-3 gap-5 show text-[90px]"
         style="animation-delay: 400ms"
         >Интерактивная карта</CustomButton
       >
@@ -62,7 +63,7 @@
           src: './QRVK.svg',
           alt: 'QR-код ВКонтакте',
         }"
-        class="show"
+        class="show text-[90px]"
         style="animation-delay: 500ms"
         >ВКонтакте</CustomButton
       >
@@ -73,7 +74,7 @@
           src: './QRMainSite.svg',
           alt: 'QR-код сайт',
         }"
-        class="show"
+        class="show text-[90px]"
         style="animation-delay: 500ms"
         >Наш сайт</CustomButton
       >
@@ -84,7 +85,7 @@
           src: './QRGooglePlay.svg',
           alt: 'QR-код на приложение',
         }"
-        class="show"
+        class="show text-[90px]"
         style="animation-delay: 500ms"
         >Приложение</CustomButton
       >

@@ -1,5 +1,8 @@
 <template>
-  <div class="w-screen h-screen bg-[#F2F2F2] flex flex-col">
+  <div
+    class="w-screen h-screen bg-[#F2F2F2] flex flex-col"
+    v-if="!devMode().devStates.main"
+  >
     <div class="fixed top-0 left-0 z-50 w-screen show-down">
       <DynamicHeader />
     </div>
@@ -17,25 +20,27 @@
       </div>
     </footer>
   </div>
+  <div
+    v-else
+    class="w-screen h-screen bg-[#F2F2F2] flex items-center justify-center font-bold text-[90px]"
+  >
+    <p>Ведутся технические работы ☠</p>
+    <p class="text-sm font-bold">ethosa lox</p>
+  </div>
 </template>
 
 <script setup lang="ts">
 import CustomSvg from "./components/CustomSvg.vue";
 import DynamicHeader from "./components/DynamicHeader.vue";
-import { useAuth } from "./store/auth";
-import router from "./router";
+import axios from "axios";
+import { devMode } from "./store/devMode";
 
 setInterval(() => {
-  useAuth().authorized ? undefined : router.push("/");
-  if (useAuth().authorized) {
-    setInterval(() => {
-      useAuth().authorized = false;
-    }, 60000);
-    console.log("auth");
-  } else {
-    console.log("un auth");
-  }
-}, 5000);
+  const data = axios.get("http://mob.kansk-tc.ru/modes");
+  data.then((res) => {
+    devMode().devStates = res.data.response;
+  });
+}, 2500);
 </script>
 
 <style></style>

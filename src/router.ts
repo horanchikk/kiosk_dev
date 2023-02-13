@@ -14,16 +14,9 @@ import SChoose from "./page/Timetable/Choose/SChoose.vue";
 import STable from "./page/Timetable/Tables/STable.vue";
 import TTable from "./page/Timetable/Tables/TTable.vue";
 
-import LoginPage from "./page/Login.vue";
-
 const routes = [
   {
     path: "/",
-    component: LoginPage,
-    name: "Авторизация",
-  },
-  {
-    path: "/home",
     component: HomePage,
     name: "Главная страница",
   },
