@@ -151,7 +151,7 @@ setInterval(() => {
     .get("http://mob.kansk-tc.ru/ktc-api/gallery/albums/rand?count=10")
     .then((res) => {
       res.data.forEach((el) => {
-        useFeed.images.push({
+        useFeed.images.push<{ link: string; alt: string }>({
           link: el.img.split("_mini").join(""),
           alt: el.title,
         });
