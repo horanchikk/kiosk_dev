@@ -23,8 +23,10 @@
         style="transform: translateZ(-10px) scale(2); z-index: -1"
       />
     </header>
-    <div class="flex flex-col w-full show-up">
-      <div class="flex flex-col gap-10 bg-[#F2F2F2] rounded-2xl w-full p-10">
+    <div class="flex flex-col w-full h-full show-up">
+      <div
+        class="flex flex-col gap-10 bg-[#F2F2F2] rounded-2xl w-full h-full px-10 pm-20 pt-10"
+      >
         <div class="flex justify-between">
           <p class="font-bold">{{ feed.title }}</p>
           <p>{{ feed.date }}</p>
