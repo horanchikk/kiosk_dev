@@ -113,6 +113,7 @@ import DynamicHeader from "./components/DynamicHeader.vue";
 import axios from "axios";
 import { dev } from "./store/devMode";
 import { useFeed } from "./store/useFeed";
+import { stringifyExpression } from "@vue/compiler-core";
 
 const data = axios.get("http://mob.kansk-tc.ru/modes");
 data.then((res) => {
@@ -144,6 +145,11 @@ reqWS.onerror = function (error) {
   dev().log("ws", `[error] ${error}`);
 };
 
+interface feedDataType {
+  link: string;
+  alt: string;
+}
+
 setInterval(() => {
   useFeed.images = [];
 
@@ -151,10 +157,10 @@ setInterval(() => {
     .get("http://mob.kansk-tc.ru/ktc-api/gallery/albums/rand?count=10")
     .then((res) => {
       res.data.forEach((el) => {
-        useFeed.images.push<{ link: string; alt: string }>({
-          link: el.img.split("_mini").join(""),
-          alt: el.title,
-        });
+        let feedData = {} as feedDataType;
+        feedData.link = el.img.split("_mini").join("");
+        feedData.alt = el.title;
+        useFeed.images.push(feedData);
       });
     });
 }, 3600000);

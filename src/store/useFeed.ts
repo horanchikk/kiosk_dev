@@ -12,6 +12,11 @@ interface Feed {
   current: News[] | undefined | null;
 }
 
+interface feedDataType {
+  link: string;
+  alt: string;
+}
+
 let cachedFeed: News[] = JSON.parse(
   localStorage.getItem("feedStorage") || "{}"
 );
@@ -21,7 +26,7 @@ export const useFeed = reactive({
     current: undefined,
   }),
 
-  images: ref([]),
+  images: ref<feedDataType[]>([]),
 
   updateFeed: function (data: News[] | undefined) {
     if (cachedFeed === null && data !== undefined) {
