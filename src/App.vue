@@ -150,6 +150,19 @@ interface feedDataType {
   alt: string;
 }
 
+useFeed.images = [];
+
+axios
+  .get("http://mob.kansk-tc.ru/ktc-api/gallery/albums/rand?count=10")
+  .then((res) => {
+    res.data.forEach((el) => {
+      let feedData = {} as feedDataType;
+      feedData.link = el.img.split("_mini").join("");
+      feedData.alt = el.title;
+      useFeed.images.push(feedData);
+    });
+  });
+
 setInterval(() => {
   useFeed.images = [];
 
