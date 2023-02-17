@@ -113,12 +113,16 @@ import DynamicHeader from "./components/DynamicHeader.vue";
 import axios from "axios";
 import { dev } from "./store/devMode";
 import { useFeed } from "./store/useFeed";
-import { stringifyExpression } from "@vue/compiler-core";
+
 
 const data = axios.get("http://mob.kansk-tc.ru/modes");
 data.then((res) => {
   dev().devStates = res.data.response;
 });
+data.catch((err) => {
+  alert(`${err.message} ${err.code}`)
+})
+
 
 const reqWS = new WebSocket("ws://mob.kansk-tc.ru/listen");
 
@@ -142,7 +146,7 @@ reqWS.onclose = function (event) {
 };
 
 reqWS.onerror = function (error) {
-  dev().log("ws", `[error] ${error}`);
+  dev().log("ws", `[error] ${error.AT_TARGET}`);
 };
 
 interface feedDataType {

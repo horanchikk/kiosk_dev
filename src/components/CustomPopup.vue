@@ -42,6 +42,11 @@
           >
             <p>{{ item.from }} => {{ item.msg }}</p>
           </div>
+          <p class="text-5xl font-bold my-10 text-center">Useragent</p>
+          <div class="border-[1px] border-green-300 w-full my-10"></div>
+          <div class="flex gap-5 justify-center my-2 h-fit">
+            {{ua}}
+          </div>
         </div>
       </div>
     </div>
@@ -57,6 +62,7 @@ const { show } = defineProps<{
 }>();
 
 const ok = ref({});
+const ua = navigator.userAgent
 
 for (var i in window) ok.value[i] = window[i];
 </script>
