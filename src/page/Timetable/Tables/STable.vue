@@ -9,7 +9,9 @@
     </div>
   </main>
   <main v-else class="w-full h-full flex flex-col p-10 overflow-y-scroll">
-    <section
+    <div v-if="weekIsEmpty(data.days)">
+
+      <section
       class="flex flex-col mb-10 gap-4"
       v-for="(day, indexDay) in data.days"
       :key="indexDay"
@@ -40,12 +42,19 @@
         </div>
       </div>
     </section>
+
+    </div>
+    <div v-else class="w-full h-full text-8xl font-bold flex items-center justify-center">
+    <p>🎊 Занятий на неделе нет 🎊</p>
+
+    </div>
+    
   </main>
 </template>
 
 <script setup lang="ts">
 import { useAxios } from "@vueuse/integrations/useAxios";
-import { watch, ref, computed } from "vue";
+import { watch } from "vue";
 import router from "../../../router";
 
 import CustomSvg from "../../../components/CustomSvg.vue";
@@ -54,10 +63,13 @@ const { isFinished, isLoading, data } = useAxios(
   `https://mob.kansk-tc.ru/ktc-api/timetable/${router.currentRoute.value.params.id}/0`
 );
 
-watch(
-  () => data.value,
-  () => {
-    console.log(data.value);
-  }
-);
+function weekIsEmpty(week: any) {
+  let emptyLessons: any[] = []
+  week.forEach(day => {
+    day.lessons.forEach(lesson => {
+      lesson.title !== '' || undefined ? emptyLessons.push(lesson) : undefined
+    });
+  });
+  return emptyLessons.length > 0 ? true : false;
+};
 </script>

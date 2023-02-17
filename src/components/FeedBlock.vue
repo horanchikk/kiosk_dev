@@ -5,12 +5,12 @@
   >
     <img :src="img.src" :alt="img.alt" class="max-h-48 object-cover" />
     <div class="flex justify-between">
-      <p class="font-bold text-4xl truncate w-5/6 items-center justify-center">
+      <p class="font-bold text-7xl truncate w-5/6 items-center justify-center">
         {{ title }}
       </p>
-      <p class="w-1/6 text-xl flex items-center justify-center">{{ date }}</p>
+      <p class="w-1/6 text-4xl flex items-center justify-end">{{ date }}</p>
     </div>
-    <p class="flex-auto text-2xl" style="max-width: 1000ch">
+    <p class="flex-auto text-5xl" style="max-width: 1000ch">
       {{ descriptionFixed }}
     </p>
   </div>

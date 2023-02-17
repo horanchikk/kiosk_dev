@@ -139,6 +139,8 @@
       <CustomButton
         big
         col
+        :hover="false"
+
         :img="{
           src: './QRVK.svg',
           alt: 'QR-код ВКонтакте',
@@ -150,6 +152,7 @@
       <CustomButton
         big
         col
+        :hover="false"
         :img="{
           src: './QRMainSite.svg',
           alt: 'QR-код сайт',
@@ -161,6 +164,7 @@
       <CustomButton
         big
         col
+        :hover="false"
         :img="{
           src: './QRGooglePlay.svg',
           alt: 'QR-код на приложение',

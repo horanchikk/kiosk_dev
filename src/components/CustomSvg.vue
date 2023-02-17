@@ -99,6 +99,8 @@
     />
   </svg>
 
+  <p v-else-if="githubLogo === ''">ivon</p>
+
   <svg
     v-else-if="infocircle === ''"
     width="60"
@@ -176,11 +178,13 @@
 <script setup lang="ts">
 import { collegebase64 } from "../helpers/collegebase64";
 
-const { loader, eye, infocircle, collegeIcon, arrowRight } = defineProps<{
-  loader?: string | boolean;
-  eye?: string | boolean;
-  infocircle?: string | boolean;
-  collegeIcon?: string | boolean;
-  arrowRight?: string | boolean;
-}>();
+const { loader, eye, infocircle, collegeIcon, arrowRight, githubLogo } =
+  defineProps<{
+    loader?: string | boolean;
+    eye?: string | boolean;
+    infocircle?: string | boolean;
+    collegeIcon?: string | boolean;
+    arrowRight?: string | boolean;
+    githubLogo?: string | boolean;
+  }>();
 </script>

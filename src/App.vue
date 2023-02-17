@@ -16,7 +16,7 @@
     >
       <div class="flex gap-20 h-full items-center">
         <CustomSvg eye />
-        <CustomSvg infocircle />
+        <CustomSvg infocircle @click="router.push('/about')" />
       </div>
     </footer>
   </div>
@@ -108,23 +108,34 @@
 </template>
 
 <script setup lang="ts">
+import axios from "axios";
+import { ref } from "vue";
+import router from "./router";
+
 import CustomSvg from "./components/CustomSvg.vue";
 import DynamicHeader from "./components/DynamicHeader.vue";
-import axios from "axios";
+import CustomPopup from "./components/CustomPopup.vue";
+
 import { dev } from "./store/devMode";
 import { useFeed } from "./store/useFeed";
+import { useAxios } from "./helpers/useAxios";
 
-
-const data = axios.get("http://mob.kansk-tc.ru/modes");
-data.then((res) => {
-  dev().devStates = res.data.response;
-});
-data.catch((err) => {
-  alert(`${err.message} ${err.code}`)
-})
-
+interface feedDataType {
+  link: string;
+  alt: string;
+}
 
 const reqWS = new WebSocket("ws://mob.kansk-tc.ru/listen");
+const show = ref(false);
+
+axios
+  .get("http://mob.kansk-tc.ru/modes")
+  .then((res) => {
+    dev().devStates = res.data.response;
+  })
+  .catch((err) => {
+    alert(`${err.message} ${err.code}`);
+  });
 
 reqWS.onopen = function (e) {
   dev().log("ws", "[open] Соединение установлено");
@@ -148,11 +159,6 @@ reqWS.onclose = function (event) {
 reqWS.onerror = function (error) {
   dev().log("ws", `[error] ${error.AT_TARGET}`);
 };
-
-interface feedDataType {
-  link: string;
-  alt: string;
-}
 
 useFeed.images = [];
 
@@ -182,5 +188,3 @@ setInterval(() => {
     });
 }, 3600000);
 </script>
-
-<style></style>

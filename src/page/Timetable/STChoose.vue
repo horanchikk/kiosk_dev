@@ -12,7 +12,7 @@
           alt: 'Преподаватель',
         }"
         class="show"
-        >Преподаватель</CustomButton
+        ><p class="text-6xl">Преподаватель</p></CustomButton
       >
       <CustomButton
         big
@@ -23,7 +23,7 @@
           alt: 'Студент',
         }"
         class="py-10 show"
-        >Студент</CustomButton
+        ><p class="text-6xl">Студент</p></CustomButton
       >
     </div>
   </main>

@@ -1,5 +1,32 @@
 <template>
-  <CustomPopup :show="showDebug" />
+  <CustomPopup :show="showDebug">
+    <div class="flex-auto overflow-y-scroll text-green-400">
+      <p class="text-5xl font-bold my-10 text-center">Window</p>
+      <div class="border-[1px] border-green-300 w-full my-10"></div>
+      <div
+        v-for="(item, index) in ok"
+        :key="index"
+        class="flex gap-5 justify-center my-2 h-fit"
+      >
+        <p>{{ index }} -</p>
+        <p>{{ item }}</p>
+      </div>
+      <p class="text-5xl font-bold my-10 text-center">Logging</p>
+      <div class="border-[1px] border-green-300 w-full my-10"></div>
+      <div
+        v-for="(item, index) in dev().debug"
+        :key="index"
+        class="flex gap-5 justify-center my-2 h-fit"
+      >
+        <p>{{ item.from }} => {{ item.msg }}</p>
+      </div>
+      <p class="text-5xl font-bold my-10 text-center">Useragent</p>
+      <div class="border-[1px] border-green-300 w-full my-10"></div>
+      <div class="flex gap-5 justify-center my-2 h-fit">
+        {{ ua }}
+      </div>
+    </div>
+  </CustomPopup>
 
   <header
     class="flex justify-between text-sm items-center h-24 w-full px-24 shadow-xl bg-[#F2F2F2]"
@@ -65,7 +92,6 @@ import moment from "moment-timezone";
 import "moment/dist/locale/ru";
 
 import CustomPopup from "./CustomPopup.vue";
-
 import CustomSvg from "../components/CustomSvg.vue";
 
 interface Header {
@@ -77,6 +103,8 @@ interface Header {
 
 const header = ref<Header>({});
 const showDebug = ref<boolean>(false);
+const ok = ref({});
+const ua = navigator.userAgent;
 
 const update = {
   datetime: () => {
@@ -94,6 +122,8 @@ const update = {
     header.value.temp = res.data.current_weather.temperature;
   },
 };
+
+for (var i in window) ok.value[i] = window[i];
 
 onMounted(() => {
   // Load first info on mount

@@ -1,4 +1,4 @@
-export default function (day) {
+export default function (day: "ПН" | "ВТ" | "СР" | "ЧТ" | "ПТ" | "СБ" | "ВС") {
   switch (day) {
     case "ПН":
       return "Понедельник";

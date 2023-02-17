@@ -48,7 +48,7 @@
         v-for="(teacher, index) in result"
         :key="index"
         @click="$router.push(`/timetable/TTable/${teacher.id}`)"
-        class="show text-[35px] font-normal py-4 shadow-lg"
+        class="show font-normal py-4 shadow-lg"
         :style="`animation-delay: ${10 * index}ms`"
         >{{ teacher.name }}</CustomButton
       >

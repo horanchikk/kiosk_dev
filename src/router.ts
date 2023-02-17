@@ -14,6 +14,9 @@ import SChoose from "./page/Timetable/Choose/SChoose.vue";
 import STable from "./page/Timetable/Tables/STable.vue";
 import TTable from "./page/Timetable/Tables/TTable.vue";
 
+// About page
+import AboutPage from "./page/AboutPage.vue";
+
 const routes = [
   {
     path: "/",
@@ -24,6 +27,11 @@ const routes = [
     path: "/feed",
     component: FeedPage,
     name: "Новости",
+  },
+  {
+    path: "/about",
+    component: AboutPage,
+    name: "Информация",
   },
   {
     path: "/news/id/:id",

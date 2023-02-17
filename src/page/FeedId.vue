@@ -27,12 +27,12 @@
       <div
         class="flex flex-col gap-10 bg-[#F2F2F2] rounded-2xl w-full h-full px-10 pm-20 pt-10"
       >
-        <div class="flex justify-between">
-          <p class="font-bold">{{ feed.title }}</p>
-          <p>{{ feed.date }}</p>
+        <div class="flex justify-between gap-5">
+          <p class="font-bold text-6xl">{{ feed.title }}</p>
+          <p class="text-4xl">{{ feed.date }}</p>
         </div>
         <section
-          class="flex flex-col gap-4 items-center"
+          class="flex flex-col gap-4 items-center pb-14 text-5xl"
           v-html="feed.body"
         ></section>
       </div>
@@ -78,7 +78,13 @@ section > br {
 }
 
 section > img {
-  border-radius: 5px;
+  border-radius: 10px;
   margin: 5px;
+  transform: scale(1);
+}
+
+section > img:hover {
+  transform: scale(1.2);
+  transition: all .5s ease-out;
 }
 </style>

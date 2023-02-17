@@ -1,7 +1,7 @@
 <template>
   <Transition name="showPopup">
     <div
-      class="fixed z-60 w-screen h-screen flex items-center justify-center bg-black bg-opacity-30"
+      class="fixed z-[90] w-screen h-screen flex items-center justify-center bg-black bg-opacity-30"
       v-if="show"
     >
       <div
@@ -22,32 +22,7 @@
             />
           </svg>
         </div>
-        <div class="flex-auto overflow-y-scroll text-green-400">
-          <p class="text-5xl font-bold my-10 text-center">Window</p>
-          <div class="border-[1px] border-green-300 w-full my-10"></div>
-          <div
-            v-for="(item, index) in ok"
-            :key="index"
-            class="flex gap-5 justify-center my-2 h-fit"
-          >
-            <p>{{ index }} -</p>
-            <p>{{ item }}</p>
-          </div>
-          <p class="text-5xl font-bold my-10 text-center">Logging</p>
-          <div class="border-[1px] border-green-300 w-full my-10"></div>
-          <div
-            v-for="(item, index) in dev().debug"
-            :key="index"
-            class="flex gap-5 justify-center my-2 h-fit"
-          >
-            <p>{{ item.from }} => {{ item.msg }}</p>
-          </div>
-          <p class="text-5xl font-bold my-10 text-center">Useragent</p>
-          <div class="border-[1px] border-green-300 w-full my-10"></div>
-          <div class="flex gap-5 justify-center my-2 h-fit">
-            {{ua}}
-          </div>
-        </div>
+        <slot />
       </div>
     </div>
   </Transition>
@@ -55,16 +30,10 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import { dev } from "../store/devMode";
 
 const { show } = defineProps<{
   show: boolean;
 }>();
-
-const ok = ref({});
-const ua = navigator.userAgent
-
-for (var i in window) ok.value[i] = window[i];
 </script>
 
 <style>

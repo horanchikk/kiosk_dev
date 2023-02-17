@@ -8,8 +8,9 @@
       Возникли проблемы с интернетом, попробуйте позже
     </div>
   </main>
-  <main v-else class="w-full h-full flex flex-col p-10 overflow-y-scroll">
-    <section
+  <main v-else class="w-full h-full">
+    <div v-if="weekIsEmpty(data.week)" class="w-full h-full flex flex-col p-10 overflow-y-scroll">
+      <section
       class="flex flex-col mb-10 gap-4"
       v-for="(day, indexDay) in data.week"
       :key="indexDay"
@@ -37,6 +38,12 @@
         </div>
       </div>
     </section>
+  </div>
+
+  <div v-else class="w-full h-full text-8xl font-bold flex items-center justify-center">
+    <p>🎊 Занятий на неделе нет 🎊</p>
+  </div>
+    
   </main>
 </template>
 
@@ -48,10 +55,21 @@ import { useAxios } from "@vueuse/integrations/useAxios";
 import router from "../../../router";
 import dayOfWeek from "../../../helpers/dayOfWeek";
 import CustomSvg from "../../../components/CustomSvg.vue";
+import { computed } from "@vue/reactivity";
 
 const { isFinished, isLoading, data } = useAxios(
   `https://mob.kansk-tc.ru/ktc-api/teacher-timetable/1/${router.currentRoute.value.params.id}`
 );
+
+function weekIsEmpty(week: any) {
+  let emptyLessons: any[] = []
+  week.forEach(day => {
+    day.lessons.forEach(lesson => {
+      lesson.title !== '' ? emptyLessons.push(lesson) : undefined
+    });
+  });
+  return emptyLessons.length > 0 ? true : false;
+};
 
 watch(
   () => data.value,
