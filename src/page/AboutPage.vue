@@ -32,6 +32,6 @@
   </main>
 </template>
 
-<script>
+<script setup>
 import CustomSvg from "../components/CustomSvg.vue";
 </script>
