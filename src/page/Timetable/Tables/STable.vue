@@ -48,7 +48,7 @@
     <p>🎊 Занятий на неделе нет 🎊</p>
 
     </div>
-    
+
   </main>
 </template>
 
@@ -64,7 +64,7 @@ const { isFinished, isLoading, data } = useAxios(
 );
 
 function weekIsEmpty(week: any) {
-  let emptyLessons: any[] = []
+  const emptyLessons: any[] = []
   week.forEach(day => {
     day.lessons.forEach(lesson => {
       lesson.title !== '' || undefined ? emptyLessons.push(lesson) : undefined

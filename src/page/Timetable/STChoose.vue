@@ -1,7 +1,7 @@
 <template>
-  <main class="w-full h-full flex items-center justify-center">
+  <main class="flex h-full w-full items-center justify-center">
     <div
-      class="grid grid-rows-1 grid-cols-2 w-full justify-between gap-20 p-10"
+      class="grid w-full grid-cols-2 grid-rows-1 justify-between gap-20 p-10"
     >
       <CustomButton
         big
@@ -22,7 +22,7 @@
           src: './book.svg',
           alt: 'Студент',
         }"
-        class="py-10 show"
+        class="show py-10"
         ><p class="text-6xl">Студент</p></CustomButton
       >
     </div>

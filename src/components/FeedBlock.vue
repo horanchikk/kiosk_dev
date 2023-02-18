@@ -1,14 +1,14 @@
 <template>
   <div
     v-if="title"
-    class="flex flex-col gap-5 rounded-lg p-5 shadow-md active:bg-black active:bg-opacity-10 transition-all show"
+    class="show flex flex-col gap-5 rounded-lg p-5 shadow-md transition-all active:bg-black active:bg-opacity-10"
   >
     <img :src="img.src" :alt="img.alt" class="max-h-48 object-cover" />
     <div class="flex justify-between">
-      <p class="font-bold text-7xl truncate w-5/6 items-center justify-center">
+      <p class="w-5/6 items-center justify-center truncate text-7xl font-bold">
         {{ title }}
       </p>
-      <p class="w-1/6 text-4xl flex items-center justify-end">{{ date }}</p>
+      <p class="flex w-1/6 items-center justify-end text-4xl">{{ date }}</p>
     </div>
     <p class="flex-auto text-5xl" style="max-width: 1000ch">
       {{ descriptionFixed }}
@@ -24,7 +24,7 @@ interface Image {
   alt?: string;
 }
 
-let { title, date, description, img } = defineProps<{
+const { title, date, description, img } = defineProps<{
   title: string;
   date: string;
   description: string;

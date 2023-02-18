@@ -3,9 +3,9 @@
     v-if="!link"
     :class="`flex ${col === '' ? 'flex-col' : ''} ${
       big === ''
-        ? 'p-5 text-[2.5rem] justify-center items-center font-bold gap-4'
+        ? 'items-center justify-center gap-4 p-5 text-[2.5rem] font-bold'
         : 'py-2 px-5'
-    } text-black bg-white text-7xl shadow-xl text-center rounded-lg cursor-pointer ${
+    } cursor-pointer rounded-lg bg-white text-center text-7xl text-black shadow-xl ${
       active === '' ? 'active:bg-black active:bg-opacity-10' : ''
     } transition-all`"
   >
@@ -17,9 +17,9 @@
     :to="link"
     :class="`flex ${col === '' ? 'flex-col' : ''} ${
       big === ''
-        ? 'p-5 text-[2.5rem] justify-center items-center font-bold gap-4'
+        ? 'items-center justify-center gap-4 p-5 text-[2.5rem] font-bold'
         : 'py-2 px-5'
-    } text-black bg-white shadow-xl text-center rounded-lg cursor-pointer ${
+    } cursor-pointer rounded-lg bg-white text-center text-black shadow-xl ${
       active === '' ? 'active:bg-black active:bg-opacity-10' : ''
     } transition-all`"
   >
@@ -29,7 +29,6 @@
 </template>
 
 <script setup lang="ts">
-import router from "../router";
 
 interface Image {
   src?: string;

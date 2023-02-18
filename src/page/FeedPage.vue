@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full h-full flex flex-col items-center justify-center overflow-y-scroll gap-3 scrollbar-0"
+    class="scrollbar-0 flex h-full w-full flex-col items-center justify-center gap-3 overflow-y-scroll"
     v-if="isLoading"
   >
     <CustomSvg loader width="100" height="100" />
@@ -9,7 +9,7 @@
     </div>
   </div>
   <div
-    class="flex flex-col w-full h-full overflow-y-scroll px-5 gap-3 scrollbar-0"
+    class="scrollbar-0 flex h-full w-full flex-col gap-3 overflow-y-scroll px-5"
     v-else
   >
     <FeedBlock

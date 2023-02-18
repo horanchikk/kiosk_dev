@@ -1,9 +1,9 @@
 <template>
   <div
-    class="w-screen h-screen bg-[#F2F2F2] flex flex-col"
+    class="flex h-screen w-screen flex-col bg-[#F2F2F2]"
     v-if="dev().devStates.main === false"
   >
-    <div class="fixed top-0 left-0 z-50 w-screen show-down">
+    <div class="show-down fixed top-0 left-0 z-50 w-screen">
       <DynamicHeader />
     </div>
 
@@ -12,9 +12,9 @@
     </main>
 
     <footer
-      class="h-24 w-screen fixed z-50 left-0 bottom-0 flex justify-end px-32 bg-white"
+      class="fixed left-0 bottom-0 z-50 flex h-24 w-screen justify-end bg-white px-32"
     >
-      <div class="flex gap-20 h-full items-center">
+      <div class="flex h-full items-center gap-20">
         <CustomSvg eye />
         <CustomSvg infocircle @click="router.push('/about')" />
       </div>
@@ -22,7 +22,7 @@
   </div>
   <div
     v-else-if="dev().devStates.main === undefined"
-    class="w-screen h-screen bg-[#F2F2F2] flex items-center justify-center font-bold text-[90px]"
+    class="flex h-screen w-screen items-center justify-center bg-[#F2F2F2] text-[90px] font-bold"
   >
     <svg
       width="200"
@@ -101,7 +101,7 @@
   </div>
   <div
     v-else
-    class="w-screen h-screen bg-[#F2F2F2] flex items-center justify-center font-bold text-[90px]"
+    class="flex h-screen w-screen items-center justify-center bg-[#F2F2F2] text-[90px] font-bold"
   >
     <p>Ведётся активная разработка 😁</p>
   </div>
@@ -166,7 +166,7 @@ axios
   .get("http://mob.kansk-tc.ru/ktc-api/gallery/albums/rand?count=10")
   .then((res) => {
     res.data.forEach((el) => {
-      let feedData = {} as feedDataType;
+      const feedData = {} as feedDataType;
       feedData.link = el.img.split("_mini").join("");
       feedData.alt = el.title;
       useFeed.images.push(feedData);
@@ -180,7 +180,7 @@ setInterval(() => {
     .get("http://mob.kansk-tc.ru/ktc-api/gallery/albums/rand?count=10")
     .then((res) => {
       res.data.forEach((el) => {
-        let feedData = {} as feedDataType;
+        const feedData = {} as feedDataType;
         feedData.link = el.img.split("_mini").join("");
         feedData.alt = el.title;
         useFeed.images.push(feedData);

@@ -1,7 +1,7 @@
 <template>
-  <main class="w-full h-full flex flex-col gap-5 py-5 overflow-hidden">
-    <div class="w-screen h-[1500px] flex gap-5 items-center justify-center">
-      <div class="w-[5800px] h-full">
+  <main class="flex h-full w-full flex-col gap-5 overflow-hidden py-5">
+    <div class="flex h-[1500px] w-screen items-center justify-center gap-5">
+      <div class="h-full w-[5800px]">
         <CustomSwiper
           :images="useFeed.images"
           class="show h-full"
@@ -10,7 +10,7 @@
         />
         <div
           v-show="useFeed.images.length <= 0"
-          class="show h-full w-full flex items-center justify-center"
+          class="show flex h-full w-full items-center justify-center"
         >
           <svg
             width="200"
@@ -89,7 +89,7 @@
         </div>
       </div>
     </div>
-    <div class="flex-auto grid grid-cols-3 gap-10 p-5">
+    <div class="grid flex-auto grid-cols-3 gap-10 p-5">
       <CustomButton
         big
         col
@@ -132,7 +132,7 @@
           src: './map.svg',
           alt: 'Интерактивная карта',
         }"
-        class="col-span-3 gap-5 show text-[90px]"
+        class="show col-span-3 gap-5 text-[90px]"
         style="animation-delay: 400ms"
         >Интерактивная карта</CustomButton
       >
@@ -140,7 +140,6 @@
         big
         col
         :hover="false"
-
         :img="{
           src: './QRVK.svg',
           alt: 'QR-код ВКонтакте',

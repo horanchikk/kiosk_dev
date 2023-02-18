@@ -1,33 +1,38 @@
 <template>
-  <main class="flex flex-col h-full w-full py-28 font-mono">
+  <main class="flex h-full w-full flex-col py-28 font-mono">
     <p
-      class="h-fit flex items-center justify-center text-7xl text-black font-bold tracking-wider"
+      class="flex h-fit items-center justify-center text-7xl font-bold tracking-wider text-black"
     >
       Инфокиоск
     </p>
     <main
-      class="flex-auto flex flex-col text-5xl font-bold gap-5 items-center justify-center"
+      class="flex flex-auto flex-col items-center justify-center gap-5 font-mono text-5xl"
     >
-      Здесь будет дино ❤️
+      <p>номер</p>
+      <p>номер</p>
+      <p>номер</p>
+      <p>номер</p>
+      <p>номер</p>
+      <p>номер</p>
     </main>
-    <footer class="flex flex-col gap-10 items-center justify-center">
+    <footer class="flex flex-col items-center justify-center gap-20">
       <div
-        class="w-full h-32 flex font-bold text-2xl items-center justify-center gap-10"
+        class="flex h-32 w-full items-center justify-center gap-20 text-2xl font-bold"
       >
-        <div class="flex flex-col gap-3">
-          <CustomSvg githubLogo />
+        <div class="flex flex-col items-center justify-center gap-5 text-5xl">
+          <CustomSvg github-logo />
           <p>horanchikk</p>
         </div>
-        <div class="flex flex-col gap-3">
-          <CustomSvg githubLogo />
+        <div class="flex flex-col items-center justify-center gap-5 text-5xl">
+          <CustomSvg github-logo />
           <p>ethosa</p>
         </div>
-        <div class="flex flex-col gap-3">
-          <CustomSvg githubLogo />
+        <div class="flex flex-col items-center justify-center gap-5 text-5xl">
+          <CustomSvg github-logo />
           <p>renardein</p>
         </div>
       </div>
-      <section class="font-bold text-8xl">by HapticX team with ♥</section>
+      <section class="text-6xl font-bold">by HapticX team with ♥</section>
     </footer>
   </main>
 </template>

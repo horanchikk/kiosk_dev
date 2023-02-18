@@ -26,7 +26,7 @@
           <div v-if="lesson.title !== ''" class="w-full h-full flex justify-between p-3 font-bold">
             <p class="w-1/4 flex gap-3 items-center">
               <p>{{ indexLesson + 1 }}</p>
-            </p>  
+            </p>
             <p class="w-2/4 flex text-center items-center justify-center">
               {{ lesson.title }}
             </p>
@@ -43,7 +43,7 @@
   <div v-else class="w-full h-full text-8xl font-bold flex items-center justify-center">
     <p>🎊 Занятий на неделе нет 🎊</p>
   </div>
-    
+
   </main>
 </template>
 
@@ -62,7 +62,7 @@ const { isFinished, isLoading, data } = useAxios(
 );
 
 function weekIsEmpty(week: any) {
-  let emptyLessons: any[] = []
+  const emptyLessons: any[] = []
   week.forEach(day => {
     day.lessons.forEach(lesson => {
       lesson.title !== '' ? emptyLessons.push(lesson) : undefined

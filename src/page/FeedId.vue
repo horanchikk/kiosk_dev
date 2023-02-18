@@ -1,9 +1,9 @@
 <template>
-  <main class="flex items-center justify-center w-full h-full" v-if="loading">
+  <main class="flex h-full w-full items-center justify-center" v-if="loading">
     <CustomSvg loader width="100" height="100" />
   </main>
   <main
-    class="text-4xl overflow-y-scroll"
+    class="overflow-y-scroll text-4xl"
     style="
       height: 100vh;
       overflow-y: auto;
@@ -13,26 +13,26 @@
     v-else
   >
     <header
-      class="relative pb-96 flex justify-start"
+      class="relative flex justify-start pb-96"
       style="z-index: -1; transform-style: preserve-3d"
     >
       <img
         :src="feed.image"
         :alt="feed.title"
-        class="w-full h-screen absolute object-cover"
+        class="absolute h-screen w-full object-cover"
         style="transform: translateZ(-10px) scale(2); z-index: -1"
       />
     </header>
-    <div class="flex flex-col w-full h-full show-up">
+    <div class="show-up flex h-full w-full flex-col">
       <div
-        class="flex flex-col gap-10 bg-[#F2F2F2] rounded-2xl w-full h-full px-10 pm-20 pt-10"
+        class="pm-20 flex h-full w-full flex-col gap-10 rounded-2xl bg-[#F2F2F2] px-10 pt-10"
       >
         <div class="flex justify-between gap-5">
-          <p class="font-bold text-6xl">{{ feed.title }}</p>
+          <p class="text-6xl font-bold">{{ feed.title }}</p>
           <p class="text-4xl">{{ feed.date }}</p>
         </div>
         <section
-          class="flex flex-col gap-4 items-center pb-14 text-5xl"
+          class="flex flex-col items-center gap-4 pb-14 text-5xl"
           v-html="feed.body"
         ></section>
       </div>
@@ -85,6 +85,6 @@ section > img {
 
 section > img:hover {
   transform: scale(1.2);
-  transition: all .5s ease-out;
+  transition: all 0.5s ease-out;
 }
 </style>

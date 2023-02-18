@@ -1,44 +1,44 @@
 <template>
   <CustomPopup :show="showDebug">
     <div class="flex-auto overflow-y-scroll text-green-400">
-      <p class="text-5xl font-bold my-10 text-center">Window</p>
-      <div class="border-[1px] border-green-300 w-full my-10"></div>
+      <p class="my-10 text-center text-5xl font-bold">Window</p>
+      <div class="my-10 w-full border-[1px] border-green-300"></div>
       <div
         v-for="(item, index) in ok"
         :key="index"
-        class="flex gap-5 justify-center my-2 h-fit"
+        class="my-2 flex h-fit justify-center gap-5"
       >
         <p>{{ index }} -</p>
         <p>{{ item }}</p>
       </div>
-      <p class="text-5xl font-bold my-10 text-center">Logging</p>
-      <div class="border-[1px] border-green-300 w-full my-10"></div>
+      <p class="my-10 text-center text-5xl font-bold">Logging</p>
+      <div class="my-10 w-full border-[1px] border-green-300"></div>
       <div
         v-for="(item, index) in dev().debug"
         :key="index"
-        class="flex gap-5 justify-center my-2 h-fit"
+        class="my-2 flex h-fit justify-center gap-5"
       >
         <p>{{ item.from }} => {{ item.msg }}</p>
       </div>
-      <p class="text-5xl font-bold my-10 text-center">Useragent</p>
-      <div class="border-[1px] border-green-300 w-full my-10"></div>
-      <div class="flex gap-5 justify-center my-2 h-fit">
+      <p class="my-10 text-center text-5xl font-bold">Useragent</p>
+      <div class="my-10 w-full border-[1px] border-green-300"></div>
+      <div class="my-2 flex h-fit justify-center gap-5">
         {{ ua }}
       </div>
     </div>
   </CustomPopup>
 
   <header
-    class="flex justify-between text-sm items-center h-24 w-full px-24 shadow-xl bg-[#F2F2F2]"
+    class="flex h-24 w-full items-center justify-between bg-[#F2F2F2] px-24 text-sm shadow-xl"
     v-if="$route.name === 'Главная страница' || $route.name === 'Авторизация'"
   >
-    <div class="text-[40px] font-bold flex gap-8 items-center">
+    <div class="flex items-center gap-8 text-[40px] font-bold">
       <CustomSvg college-icon />
       <p>{{ header.week }}, {{ header.date }}</p>
     </div>
     <p class="text-[40px] font-bold">{{ header.time }}</p>
     <p
-      class="opacity-30 text-[40px]"
+      class="text-[40px] opacity-30"
       v-if="dev().devStates.dev"
       @click="showDebug = !showDebug"
     >
@@ -48,7 +48,7 @@
       <CustomSvg loader />
     </div>
     <div v-else>
-      <div class="flex gap-4 items-center text-[40px]" v-if="header.temp">
+      <div class="flex items-center gap-4 text-[40px]" v-if="header.temp">
         <p>{{ header.temp }}°C</p>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -70,14 +70,14 @@
   </header>
   <header
     v-else
-    class="flex justify-between text-sm items-center h-24 w-full px-24 shadow-xl bg-[#F2F2F2]"
+    class="flex h-24 w-full items-center justify-between bg-[#F2F2F2] px-24 text-sm shadow-xl"
   >
-    <div class="text-[40px] font-bold flex gap-8 items-center">
+    <div class="flex items-center gap-8 text-[40px] font-bold">
       <CustomSvg arrow-right @click="$router.back()" />
       <p>{{ $route.name }}</p>
     </div>
     <p class="opacity-30">dev build</p>
-    <div class="flex gap-4 items-center text-[40px]">
+    <div class="flex items-center gap-4 text-[40px]">
       <p>{{ header.time }}</p>
     </div>
   </header>
@@ -123,7 +123,7 @@ const update = {
   },
 };
 
-for (var i in window) ok.value[i] = window[i];
+for (const i in window) ok.value[i] = window[i];
 
 onMounted(() => {
   // Load first info on mount

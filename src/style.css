@@ -5,51 +5,51 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  font-family: "Monda", sans-serif;
-}
-
 @keyframes opacityAnim {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 @keyframes downAnim {
-  0% {
-    transform: translateY(-60px);
-  }
-  100% {
-    transform: translateX(0px);
-  }
+    0% {
+        transform: translateY(-60px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
 }
 
 @keyframes upAnim {
-  0% {
-    transform: translateY(60px);
-  }
-  100% {
-    transform: translateX(0px);
-  }
+    0% {
+        transform: translateY(60px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+* {
+    font-family: "Monda", sans-serif;
 }
 
 .show {
-  opacity: 0;
-  animation: opacityAnim 300ms ease-out;
-  animation-fill-mode: forwards;
+    opacity: 0;
+    animation: opacityAnim 300ms ease-out;
+    animation-fill-mode: forwards;
 }
 
 .show-down {
-  transform: translateY(-60px);
-  animation: downAnim 500ms ease-out;
-  animation-fill-mode: forwards;
+    transform: translateY(-60px);
+    animation: downAnim 500ms ease-out;
+    animation-fill-mode: forwards;
 }
 
 .show-up {
-  transform: translateY(60px);
-  animation: downUp 1s cubic-bezier(0.16, 1, 0.3, 1);
-  animation-fill-mode: forwards;
+    transform: translateY(60px);
+    animation: downUp 1s cubic-bezier(0.16, 1, 0.3, 1);
+    animation-fill-mode: forwards;
 }

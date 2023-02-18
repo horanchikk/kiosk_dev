@@ -15,13 +15,13 @@
     <swiper-slide
       v-for="(image, index) in images"
       :key="index"
-      :virtualIndex="index"
+      :virtual-index="index"
       class="rounded-lg"
     >
       <img
         :src="image.link"
         :alt="image.alt"
-        class="object-cover rounded-lg drop-shadow-xl h-full w-full"
+        class="h-full w-full rounded-lg object-cover drop-shadow-xl"
       />
     </swiper-slide>
     <swiper-slide class="shadow-md"></swiper-slide>
@@ -32,7 +32,7 @@
 import "swiper/css";
 import "swiper/css/zoom";
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { Virtual, Autoplay } from "swiper";
+import { Autoplay, Virtual } from "swiper";
 
 interface Image {
   link: string;

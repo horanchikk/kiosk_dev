@@ -17,7 +17,7 @@ interface feedDataType {
   alt: string;
 }
 
-let cachedFeed: News[] = JSON.parse(
+const cachedFeed: News[] = JSON.parse(
   localStorage.getItem("feedStorage") || "{}"
 );
 

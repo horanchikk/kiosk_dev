@@ -1,20 +1,20 @@
 <template>
   <Transition name="showPopup">
     <div
-      class="fixed z-[90] w-screen h-screen flex items-center justify-center bg-black bg-opacity-30"
+      class="fixed z-[90] flex h-screen w-screen items-center justify-center bg-black bg-opacity-30"
       v-if="show"
     >
       <div
-        class="w-5/6 h-5/6 bg-black bg-opacity-80 my-10 rounded-3xl flex flex-col text-3xl text-white"
+        class="my-10 flex h-5/6 w-5/6 flex-col rounded-3xl bg-black bg-opacity-80 text-3xl text-white"
       >
-        <div class="w-full flex justify-end p-5">
+        <div class="flex w-full justify-end p-5">
           <svg
             @click="show = false"
             xmlns="http://www.w3.org/2000/svg"
             width="90px"
             height="90px"
             viewBox="0 0 24 24"
-            class="active:opacity-50 transition-all cursor-pointer"
+            class="cursor-pointer transition-all active:opacity-50"
           >
             <path
               fill="white"
@@ -29,9 +29,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
 
-const { show } = defineProps<{
+const { show = false } = defineProps<{
   show: boolean;
 }>();
 </script>

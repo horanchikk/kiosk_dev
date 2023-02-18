@@ -1,6 +1,6 @@
 <template>
   <main
-    class="w-full h-full flex flex-col items-center justify-center overflow-y-scroll gap-3 scrollbar-0"
+    class="scrollbar-0 flex h-full w-full flex-col items-center justify-center gap-3 overflow-y-scroll"
     v-if="isLoading"
   >
     <CustomSvg loader width="100" height="100" />
@@ -8,13 +8,13 @@
       Возникли проблемы с интернетом, попробуйте позже
     </div>
   </main>
-  <main v-else class="w-full h-full flex flex-col items-center gap-10 p-10">
+  <main v-else class="flex h-full w-full flex-col items-center gap-10 p-10">
     <section
-      class="w-4/5 flex items-center px-10 justify-between rounded-full shadow-md bg-white show-down"
+      class="show-down flex w-4/5 items-center justify-between rounded-full bg-white px-10 shadow-md"
     >
       <input
         type="text"
-        class="border-0 outline-0 text-black rounded-bl-full text-3xl px-5 py-4 w-full"
+        class="w-full rounded-bl-full border-0 px-5 py-4 text-3xl text-black outline-0"
         placeholder="Найти группу"
         v-model="text"
         @input="find(text)"
@@ -42,7 +42,7 @@
         </defs>
       </svg>
     </section>
-    <section class="flex-auto w-full flex flex-col overflow-y-scroll">
+    <section class="flex w-full flex-auto flex-col overflow-y-scroll">
       <div
         v-for="(courses, index) in result"
         :key="index"
@@ -55,14 +55,14 @@
             v-for="(course, index) in courses.groups"
             :key="index"
             @click="$router.push(`/timetable/STable/${course.id}`)"
-            class="show text-[35px] font-normal py-4 shadow-lg"
+            class="show py-4 text-[35px] font-normal shadow-lg"
             :style="`animation-delay: ${10 * index}ms`"
             >{{ course.title }}</CustomButton
           >
         </div>
         <div
           v-if="index !== data.length - 1"
-          class="w-full h-1 border-[1px] border-black border-opacity-30 rounded-full"
+          class="h-1 w-full rounded-full border-[1px] border-black border-opacity-30"
         ></div>
       </div>
     </section>
