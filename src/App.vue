@@ -114,11 +114,9 @@ import router from "./router";
 
 import CustomSvg from "./components/CustomSvg.vue";
 import DynamicHeader from "./components/DynamicHeader.vue";
-import CustomPopup from "./components/CustomPopup.vue";
 
 import { dev } from "./store/devMode";
 import { useFeed } from "./store/useFeed";
-import { useAxios } from "./helpers/useAxios";
 
 interface feedDataType {
   link: string;
@@ -128,14 +126,9 @@ interface feedDataType {
 const reqWS = new WebSocket("ws://mob.kansk-tc.ru/listen");
 const show = ref(false);
 
-axios
-  .get("http://mob.kansk-tc.ru/modes")
-  .then((res) => {
-    dev().devStates = res.data.response;
-  })
-  .catch((err) => {
-    alert(`${err.message} ${err.code}`);
-  });
+axios.get("http://mob.kansk-tc.ru/modes").then((res) => {
+  dev().devStates = res.data.response;
+});
 
 reqWS.onopen = function (e) {
   dev().log("ws", "[open] Соединение установлено");

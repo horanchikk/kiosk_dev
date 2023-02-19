@@ -100,8 +100,8 @@
         link="/feed"
         class="show text-[90px]"
         style="animation-delay: 300ms"
-        >Новости</CustomButton
-      >
+        >Новости
+      </CustomButton>
       <CustomButton
         big
         col
@@ -112,8 +112,8 @@
         link="/timetable/STChoose"
         class="show text-[90px]"
         style="animation-delay: 300ms"
-        >Расписание</CustomButton
-      >
+        >Расписание
+      </CustomButton>
       <CustomButton
         big
         col
@@ -121,10 +121,11 @@
           src: './gallery.svg',
           alt: 'Галерея',
         }"
+        link="/gallery"
         class="show text-[90px]"
         style="animation-delay: 300ms"
-        >Галерея</CustomButton
-      >
+        >Галерея
+      </CustomButton>
       <CustomButton
         big
         col
@@ -132,10 +133,11 @@
           src: './map.svg',
           alt: 'Интерактивная карта',
         }"
+        link="/interactive"
         class="show col-span-3 gap-5 text-[90px]"
         style="animation-delay: 400ms"
-        >Интерактивная карта</CustomButton
-      >
+        >Интерактивная карта
+      </CustomButton>
       <CustomButton
         big
         col
@@ -146,8 +148,8 @@
         }"
         class="show text-[90px]"
         style="animation-delay: 500ms"
-        >ВКонтакте</CustomButton
-      >
+        >ВКонтакте
+      </CustomButton>
       <CustomButton
         big
         col
@@ -158,8 +160,8 @@
         }"
         class="show text-[90px]"
         style="animation-delay: 500ms"
-        >Наш сайт</CustomButton
-      >
+        >Наш сайт
+      </CustomButton>
       <CustomButton
         big
         col
@@ -170,8 +172,8 @@
         }"
         class="show text-[90px]"
         style="animation-delay: 500ms"
-        >Приложение</CustomButton
-      >
+        >Приложение
+      </CustomButton>
     </div>
   </main>
 </template>

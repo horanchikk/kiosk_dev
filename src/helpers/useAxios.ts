@@ -1,15 +1,25 @@
 import axios from "axios";
+import { dev } from "../store/devMode";
 
-const ip = "http://mob.kansk-tc.ru";
+const ip = "https://mob.kansk-tc.ru/ktc-api/";
 
-export function useAxios() {
-  function GET(method: string, params?: string, data?: object) {
-    return axios.get(`http://mob.kansk-tc.ru/${method}/${params}`, data);
-  }
-
-  function POST(method: string, params?: string, data?: object) {
-    return axios.post(`http://mob.kansk-tc.ru/${method}/${params}`, data);
-  }
-
-  return { GET, POST };
-}
+export const useAxios = {
+  GET: (method: string, params?: string) => {
+    return axios
+      .get(`${ip}${method}${params ? "?" + params : ""}`)
+      .then((r) => r.data)
+      .catch((err) => {
+        dev().log(`${ip}${method}${params ? "?" + params : ""}`, err.message);
+        console.error("useAxios exception: ", err.message);
+      });
+  },
+  POST: (method: string, params?: string) => {
+    return axios
+      .post(`${ip}${method}${params ? "?" + params : ""}`)
+      .then((r) => r.data)
+      .catch((err) => {
+        dev().log(`${ip}${method}${params ? "?" + params : ""}`, err.message);
+        console.error("useAxios exception: ", err.message);
+      });
+  },
+};

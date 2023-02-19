@@ -1,4 +1,4 @@
-import { createWebHashHistory, createRouter } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 
 // Home page
 import HomePage from "./page/HomePage.vue";
@@ -17,6 +17,13 @@ import TTable from "./page/Timetable/Tables/TTable.vue";
 // About page
 import AboutPage from "./page/AboutPage.vue";
 
+// Gallery page
+import GalleryPage from "./page/Gallery/GalleryPage.vue";
+import GalleryId from "./page/Gallery/GalleryId.vue";
+
+// Interactive map of college page
+import InteractiveMapPage from "./page/InteractiveMapPage.vue";
+
 const routes = [
   {
     path: "/",
@@ -32,6 +39,21 @@ const routes = [
     path: "/about",
     component: AboutPage,
     name: "Информация",
+  },
+  {
+    path: "/interactive",
+    component: InteractiveMapPage,
+    name: "Интерактивная карта",
+  },
+  {
+    path: "/gallery",
+    component: GalleryPage,
+    name: "Галерея",
+  },
+  {
+    path: "/gallery/:id",
+    component: GalleryId,
+    name: "Альбом",
   },
   {
     path: "/news/id/:id",
