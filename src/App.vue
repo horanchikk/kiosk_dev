@@ -123,10 +123,10 @@ interface feedDataType {
   alt: string;
 }
 
-const reqWS = new WebSocket("ws://mob.kansk-tc.ru/listen");
+const reqWS = new WebSocket("wss://mob.kansk-tc.ru/listen");
 const show = ref(false);
 
-axios.get("http://mob.kansk-tc.ru/modes").then((res) => {
+axios.get("https://mob.kansk-tc.ru/modes").then((res) => {
   dev().devStates = res.data.response;
 });
 
@@ -156,7 +156,7 @@ reqWS.onerror = function (error) {
 useFeed.images = [];
 
 axios
-  .get("http://mob.kansk-tc.ru/ktc-api/gallery/albums/rand?count=10")
+  .get("https://mob.kansk-tc.ru/ktc-api/gallery/albums/rand?count=10")
   .then((res) => {
     res.data.forEach((el) => {
       const feedData = {} as feedDataType;
@@ -170,7 +170,7 @@ setInterval(() => {
   useFeed.images = [];
 
   axios
-    .get("http://mob.kansk-tc.ru/ktc-api/gallery/albums/rand?count=10")
+    .get("https://mob.kansk-tc.ru/ktc-api/gallery/albums/rand?count=10")
     .then((res) => {
       res.data.forEach((el) => {
         const feedData = {} as feedDataType;
