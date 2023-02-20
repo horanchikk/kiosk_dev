@@ -3,8 +3,8 @@
     v-if="!link"
     :class="`flex ${col === '' ? 'flex-col' : ''} ${
       big === ''
-        ? 'items-center justify-center gap-4 text-[2.5rem] font-bold'
-        : 'py-2 px-5'
+        ? 'items-center justify-center gap-4 py-2 px-5 text-[2.5rem] font-bold'
+        : ''
     } cursor-pointer rounded-lg bg-white text-center text-7xl text-black shadow-xl ${
       active === '' ? 'active:bg-black active:bg-opacity-10' : ''
     } transition-all`"
@@ -17,8 +17,8 @@
     :to="link"
     :class="`flex ${col === '' ? 'flex-col' : ''} ${
       big === ''
-        ? 'items-center justify-center gap-4 p-5 text-[2.5rem] font-bold'
-        : 'py-2 px-5'
+        ? 'items-center justify-center gap-4 p-5 py-2 px-5 text-[2.5rem] font-bold'
+        : ''
     } cursor-pointer rounded-lg bg-white text-center text-black shadow-xl ${
       active === '' ? 'active:bg-black active:bg-opacity-10' : ''
     } transition-all`"

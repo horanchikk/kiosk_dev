@@ -9,7 +9,7 @@
     </div>
   </div>
   <div
-    class="scrollbar-0 flex h-full w-full flex-col gap-3 overflow-y-scroll px-5"
+    class="scrollbar-0 grid h-full w-full grid-cols-2 flex-col gap-10 overflow-y-scroll px-5"
     v-else
   >
     <FeedBlock
@@ -28,8 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, watch } from "vue";
-import axios from "axios";
+import { watch } from "vue";
 
 import FeedBlock from "../components/FeedBlock.vue";
 import CustomSvg from "../components/CustomSvg.vue";

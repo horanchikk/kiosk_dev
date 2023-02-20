@@ -26,9 +26,14 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import CustomButton from "../components/CustomButton.vue";
-import SimpleLightbox from "simplelightbox";
+import OpenSeaDragon from "openseadragon";
 
-const lightbox = new SimpleLightbox("img");
+OpenSeaDragon({
+  tileSources: {
+    type: "image",
+    url: "https://sun2.sibirix.userapi.com/impg/BJ9P3opbtTna-1HCdJFzAAQ-glm-560SqKBsmw/RWXLEivlpgs.jpg?size=441x2160&quality=96&sign=b7ee5a3fed721e0ebb27da368144efec&type=album",
+  },
+});
 
 const zoom = ref(4);
 const floor = ref(1);
