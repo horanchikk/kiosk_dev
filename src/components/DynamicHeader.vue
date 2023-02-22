@@ -14,8 +14,7 @@
       <p class="my-10 text-center text-5xl font-bold">Logging</p>
       <div class="my-10 w-full border-[1px] border-green-300"></div>
       <div
-        v-for="(item, index) in dev().debug"
-        :key="index"
+        v-for="item in dev().debug"
         class="my-2 flex h-fit justify-center gap-5"
       >
         <p>{{ item.from }} => {{ item.msg }}</p>
@@ -84,13 +83,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
-import { dev } from "../store/devMode";
-
+import { onMounted, ref } from "vue";
 import axios from "axios";
 import moment from "moment-timezone";
 import "moment/dist/locale/ru";
 
+import { dev } from "../store/devMode";
 import CustomPopup from "./CustomPopup.vue";
 import CustomSvg from "../components/CustomSvg.vue";
 
@@ -103,7 +101,7 @@ interface Header {
 
 const header = ref<Header>({});
 const showDebug = ref<boolean>(false);
-const ok = ref({});
+const ok = <any>ref({});
 const ua = navigator.userAgent;
 
 const update = {

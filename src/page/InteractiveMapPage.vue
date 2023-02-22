@@ -1,40 +1,85 @@
 <template>
   <div class="flex h-full w-full flex-col">
-    <main class="flex h-full flex-auto items-center justify-center">
-      <img
-        src="https://sun2.sibirix.userapi.com/impg/BJ9P3opbtTna-1HCdJFzAAQ-glm-560SqKBsmw/RWXLEivlpgs.jpg?size=441x2160&quality=96&sign=b7ee5a3fed721e0ebb27da368144efec&type=album"
-        alt="aphoto"
-      />
+    <main
+      class="my-20 flex h-full w-full flex-auto items-center justify-center overflow-y-scroll"
+    >
+      <div class="relative h-full" v-show="floor === 2">
+        <section
+          class="absolute flex flex h-[680px] w-full items-center justify-between p-5"
+        >
+          <div class="flex w-1/2 justify-center">
+            <!--            <MapMark>3.10</MapMark>-->
+          </div>
+          <div class="flex w-1/2 justify-center">
+            <!--            <MapMark>3.9</MapMark>-->
+          </div>
+        </section>
+
+        <img src="../assets/floors/2floor.svg" class="h-full" alt="2 floor" />
+      </div>
+
+      <div class="relative h-full" v-show="floor === 3">
+        <section
+          class="absolute flex flex h-[670px] w-full items-center justify-between p-5"
+        >
+          <div class="flex w-1/2 justify-center">
+            <MapMark>3.9</MapMark>
+          </div>
+          <div class="flex w-1/2 justify-center">
+            <MapMark>3.10</MapMark>
+          </div>
+        </section>
+
+        <img src="../assets/floors/3floor.svg" class="h-full" alt="3 floor" />
+      </div>
+
+      <div class="relative h-full" v-show="floor === 4">
+        <div></div>
+        <img src="../assets/floors/4floor.svg" class="h-full" alt="4 floor" />
+      </div>
     </main>
-    <header class="grid w-full grid-cols-4 grid-rows-1">
-      <CustomButton big active @click="floor = 1" class="text-7xl text-black"
+    <footer class="grid h-96 w-full grid-cols-4 grid-rows-1 gap-28 p-20 px-36">
+      <CustomButton
+        big
+        active
+        @click="floor = 1"
+        :class="`show-left ${floor === 1 ? 'bg-black bg-opacity-10' : ''}`"
+        style="animation-delay: 100ms"
         >1 этаж
       </CustomButton>
-      <CustomButton big active @click="floor = 2" class="text-7xl text-black"
+      <CustomButton
+        big
+        active
+        @click="floor = 2"
+        :class="`show-left ${floor === 2 ? 'bg-black bg-opacity-10' : ''}`"
+        style="animation-delay: 200ms"
         >2 этаж
       </CustomButton>
-      <CustomButton big active @click="floor = 3" class="text-7xl text-black"
+      <CustomButton
+        big
+        active
+        @click="floor = 3"
+        style="animation-delay: 300ms"
+        :class="`show-left ${floor === 3 ? 'bg-black bg-opacity-10' : ''}`"
         >3 этаж
       </CustomButton>
-      <CustomButton big active @click="floor = 4" class="text-7xl text-black"
+      <CustomButton
+        big
+        active
+        @click="floor = 4"
+        :class="`show-left ${floor === 4 ? 'bg-black bg-opacity-10' : ''}`"
+        style="animation-delay: 400ms"
         >4 этаж
       </CustomButton>
-    </header>
+    </footer>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
+
+import MapMark from "../components/mapMark.vue";
 import CustomButton from "../components/CustomButton.vue";
-import OpenSeaDragon from "openseadragon";
 
-OpenSeaDragon({
-  tileSources: {
-    type: "image",
-    url: "https://sun2.sibirix.userapi.com/impg/BJ9P3opbtTna-1HCdJFzAAQ-glm-560SqKBsmw/RWXLEivlpgs.jpg?size=441x2160&quality=96&sign=b7ee5a3fed721e0ebb27da368144efec&type=album",
-  },
-});
-
-const zoom = ref(4);
-const floor = ref(1);
+const floor = ref(3);
 </script>

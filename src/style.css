@@ -32,8 +32,23 @@
     }
 }
 
+@keyframes leftAnim {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
 * {
     font-family: "Monda", sans-serif;
+}
+
+*::-webkit-scrollbar {
+    width: 0;
 }
 
 .show {
@@ -50,6 +65,13 @@
 
 .show-up {
     transform: translateY(60px);
-    animation: downUp 1s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: upAnim 1s cubic-bezier(0.16, 1, 0.3, 1);
+    animation-fill-mode: forwards;
+}
+
+.show-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    animation: leftAnim 300ms ease-out;
     animation-fill-mode: forwards;
 }

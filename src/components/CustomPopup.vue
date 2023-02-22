@@ -29,10 +29,11 @@
 </template>
 
 <script setup lang="ts">
-
 const { show = false } = defineProps<{
   show: boolean;
 }>();
+
+console.log(show);
 </script>
 
 <style>
