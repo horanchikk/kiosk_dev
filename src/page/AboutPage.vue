@@ -6,9 +6,10 @@
       Инфокиоск
     </p>
     <main
-      class="flex flex-auto flex-col items-center justify-center gap-5 font-mono text-5xl"
+      class="flex-auto flex items-center justify-center font-mono font-bold h-full w-full text-5xl"
     >
-      <p>
+      <div class="text-center max-w-7xl flex flex-col gap-10">
+        <p>
         Приемная, секретарь руководителя, Сухорукова Нина Викторовна +7 (39161)
         2–39–52
       </p>
@@ -25,6 +26,7 @@
         Заместитель директора по воспитательной работе, Соколова Евгения
         Викторовна +7 (39161) 2–36–11
       </p>
+      </div>
     </main>
     <footer class="flex flex-col items-center justify-center gap-20">
       <div

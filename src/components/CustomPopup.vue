@@ -32,8 +32,6 @@
 const { show = false } = defineProps<{
   show: boolean;
 }>();
-
-console.log(show);
 </script>
 
 <style>

@@ -1,4 +1,5 @@
 import { reactive, ref } from "vue";
+import { dev } from "./devMode";
 
 interface News {
   id: number;
@@ -32,10 +33,10 @@ export const useFeed = reactive({
     if (cachedFeed === null && data !== undefined) {
       this.feed.current = data;
       localStorage.setItem("feedStorage", JSON.stringify(data));
-      console.log("caching");
+      dev().log('updateFeed', "caching");
     } else if (cachedFeed !== null && data === undefined) {
       this.feed.current = cachedFeed;
-      console.log("get current");
+      dev().log('updateFeed', "getting from cache");
     } else if (cachedFeed && data) {
       this.feed.current = data;
     }

@@ -49,6 +49,5 @@ const albums: Ref<Album[]> = ref([]);
 
 useAxios.GET("gallery/albums").then((r) => {
   albums.value = r;
-  console.log(r);
 });
 </script>

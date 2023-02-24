@@ -10,28 +10,100 @@
 
   <div class="flex h-full w-full flex-col">
     <main
-      class="my-20 flex h-full w-full flex-auto items-center justify-center overflow-y-scroll"
-    >
-      <div class="relative h-full" v-show="floor === 2">
-        <section
-          class="absolute flex h-[680px] w-full items-center justify-between p-5"
+      class="flex h-full w-full flex-auto items-center justify-center overflow-y-scroll"
+    >    
+      <!-- Floor 1 -->
+      <!-- Section 1 -->
+      <div class="relative h-full flex flex-col items-center justify-center" v-show="floor === 11">
+        <p class="text-6xl font-bold">Необходим план в формате .svg</p>
+      </div>
+
+      <!-- Section 2 -->
+      <div class="relative h-full flex flex-col items-center justify-center" v-show="floor === 12">
+        <p class="text-6xl font-bold">Необходим план в формате .svg</p>
+      </div>
+
+      <!-- Floor 2 -->
+      <!-- Section 1 -->
+      
+      <div class="relative h-full flex flex-col" v-show="floor === 21">
+        <div
+          class="absolute flex flex-col h-full w-full py-24"
         >
-          <div class="flex w-1/2 justify-center">
-            <!--            <MapMark>3.10</MapMark>-->
-          </div>
-          <div class="flex w-1/2 justify-center">
-            <!--            <MapMark>3.9</MapMark>-->
-          </div>
-        </section>
+          <section class="h-[620px] w-full grid grid-rows-1 grid-cols-2">
+            <div class="flex items-center justify-center">
+              <MapMark unclickable>2.9</MapMark>
+            </div>
+            <div class="flex items-center justify-center">
+              <MapMark unclickable>2.10</MapMark>
+            </div>
+          </section>
+          
+          <section class="h-[330px] w-full grid grid-cols-2 grid-rows-1">
+            <div class="w-full h-full grid grid-cols-1 grid-rows-2">
+              <MapMark class="self-center place-self-center" @click="showInfo('2.8', 'Юрист')">2.8</MapMark>
+              <MapMark class="self-center place-self-center" @click="showInfo('2.7', 'Заместитель директора по УР')">2.7</MapMark>
+            </div>
+            <MapMark class="self-end place-self-end mx-20 my-4" unclickable>ПЛ</MapMark>
+          </section>
+
+          <section class="h-[320px] w-full grid grid-cols-2 grid-rows-1">
+            <MapMark class="self-center place-self-center" @click="showInfo('2.6', 'Преподавательская')">2.6</MapMark>
+            <MapMark class="place-self-center self-end" unclickable>
+              Зона отдыха
+            </MapMark>
+          </section>
+
+          <section class="h-[340px] w-full grid grid-cols-2 grid-rows-1">
+            <div class="h-full w-full grid grid-cols-1 grid-rows-2">
+              <div class="w-full h-full flex items-center justify-center font-bold text-4xl text-center">
+                <p>Заместитель директора <br />по УР</p>
+              </div>
+              <MapMark class="self-center place-self-center" @click="showInfo('2.5', 'Приёмная директора')">2.5</MapMark>
+            </div>
+            <div></div>
+          </section>
+
+          <section class="h-[330px] w-full grid grid-cols-2 grid-rows-1">
+            <div class="w-full h-full flex items-center justify-center font-bold text-4xl text-center">
+                <p>Директор</p>
+            </div>
+            <div class="w-full h-full flex items-center justify-center font-bold text-4xl text-center">
+              <MapMark class="self-center place-self-center" @click="showInfo('2.5', 'Методический кабинет')">2.5</MapMark>
+            </div>
+          </section>
+
+          <section class="h-[160px] w-full grid grid-cols-2 grid-rows-1">
+            <MapMark class="self-center place-self-center" @click="showInfo('2.4', 'Учебная часть')">2.4</MapMark>
+            <MapMark class="self-center place-self-center" unclickable>ЛП</MapMark>
+          </section>
+
+          <section class="h-[220px] w-full grid grid-cols-2 grid-rows-1">
+            <MapMark class="self-center place-self-center" @click="showInfo('2.3', 'Заведующий отделением')">2.3</MapMark>
+
+          </section>
+
+          <section class="flex-auto grid grid-cols-2 grid-rows-1">
+            <MapMark class="self-center place-self-center" unclickable >2.2</MapMark>
+            <MapMark class="self-center place-self-center" unclickable >2.1</MapMark>
+          </section>
+
+        </div>
 
         <img src="../assets/floors/2floor.svg" class="h-full" alt="2 floor" />
       </div>
 
+      <!-- Section 2 -->
+      <div class="relative h-full flex flex-col items-center justify-center" v-show="floor === 22">
+        <p class="text-6xl font-bold">Необходим план в формате .svg</p>
+      </div>
+      
+      <!-- Floor 3 -->
+
       <div class="relative h-full flex flex-col" v-show="floor === 3">
         <div
-          class="absolute flex flex-col h-full w-full p-5"
+          class="absolute flex flex-col h-full w-full py-24"
         >
-
           <section class="h-[620px] w-full grid grid-rows-1 grid-cols-2">
             <div class="flex items-center justify-center">
               <MapMark @click="showInfo('3.9', 'ИТ решения на платформе 1С: предприятие 8.1')">3.9</MapMark>
@@ -46,12 +118,12 @@
               <MapMark class="self-center place-self-center" @click="showInfo('3.8', 'Заместитель директора по АХР')">3.8</MapMark>
               <MapMark class="self-center place-self-center" @click="showInfo('3.6', 'Начальник отдела АСУ')">3.6</MapMark>
             </div>
-            <MapMark class="self-end place-self-end mx-20 my-4">ПЛ</MapMark>
+            <MapMark class="self-end place-self-end mx-20 my-4" unclickable>ПЛ</MapMark>
           </section>
 
           <section class="h-[560px] w-full grid grid-cols-2 grid-rows-1">
             <MapMark class="self-center place-self-center" @click="showInfo('3.5', 'Веб-дизайн и разработка')">3.5</MapMark>
-            <MapMark class="place-self-center self-end">
+            <MapMark unclickable class="place-self-center self-end">
               Зона отдыха
             </MapMark>
           </section>
@@ -59,7 +131,7 @@
           <section class="h-[450px] w-full grid grid-cols-2 grid-rows-1">
             <MapMark class="self-center place-self-center" @click="showInfo('3.4', 'Методический кабинет')">3.4</MapMark>
             <div class="self-end place-self-center my-[50px] flex justify-end px-20 w-full">
-              <MapMark>ЛЛ</MapMark>
+              <MapMark unclickable>ЛЛ</MapMark>
             </div>
           </section>
 
@@ -72,7 +144,7 @@
             <MapMark class="self-center place-self-center" @click="showInfo('3.1', 'Разработка игр и мультимедийных приложений')">3.1</MapMark>
           </section>
 
-          <section class="flex-auto w-full grid grid-cols-2 grid-rows-1">
+          <section class="flex-auto w-full grid grid-cols-2 grid-rows-1 mt-28">
             <div></div>
             <MapMark class="self-center place-self-center" @click="showInfo('3.2.1', 'Комната для вебинаров')">3.2.1</MapMark>
           </section>
@@ -82,41 +154,96 @@
         <img src="../assets/floors/3floor.svg" class="h-full" alt="3 floor" />
       </div>
 
+      <!-- Floor 4 -->
+
       <div class="relative h-full" v-show="floor === 4">
-        <div></div>
+        <div
+          class="absolute flex flex-col h-full w-full py-28"
+        >
+        <section class="h-[660px] w-full grid grid-rows-1 grid-cols-2">
+            <div class="flex items-center justify-center">
+              <MapMark unclickable>4.7</MapMark>
+            </div>
+            <div class="flex items-center justify-center">
+              <MapMark unclickable>4.8</MapMark>
+            </div>
+          </section>
+          
+          <section class="h-[330px] w-full grid grid-cols-2 grid-rows-1">
+            <div class="w-full h-full grid grid-cols-1 grid-rows-2">
+              <div></div>
+              <MapMark class="self-center place-self-center" unclickable>4.5</MapMark>
+            </div>
+            <MapMark class="self-end place-self-end mx-20 my-4" unclickable>ПЛ</MapMark>
+          </section>
+
+          <section class="h-[480px] w-full grid grid-cols-2 grid-rows-1">
+            <MapMark class="self-center place-self-center" unclickable>4.4</MapMark>
+            <MapMark class="self-center mx-48 my-24" unclickable>4.9</MapMark>
+          </section>
+
+          <section class="h-[650px] w-full grid grid-cols-2 grid-rows-2">
+            <MapMark class="self-center place-self-center row-span-2" unclickable>4.3</MapMark>
+            <MapMark class="self-center place-self-end mx-16" @click="showInfo('4.10', 'Отдел АСУ')">4.10</MapMark>
+            <MapMark class="self-end place-self-end my-28 mx-20" unclickable>ЛЛ</MapMark>
+            <div></div>
+          </section>
+
+          <section class="flex-auto w-full grid grid-cols-2 grid-rows-1">
+            <MapMark class="self-center place-self-center" unclickable>4.2</MapMark>
+            <MapMark class="self-center place-self-center" unclickable>4.1</MapMark>
+          </section>
+
+        </div>
         <img src="../assets/floors/4floor.svg" class="h-full" alt="4 floor" />
       </div>
     </main>
     <footer class="grid h-96 w-full grid-cols-4 grid-rows-1 gap-28 p-20 px-36">
-      <CustomButton
+      <div class="w-full h-full relative">
+        <CustomButton
         big
-        active
-        @click="floor = 1"
-        :class="`show-left ${floor === 1 ? 'bg-black bg-opacity-10' : ''}`"
-        style="animation-delay: 100ms"
+        :active="false"
+        @click="showSections.floor = 1; showSections.state = true;"
+        :class="`show-left w-full h-full ${showSections.floor === 1 && showSections.state === true ? 'pointer-events-none' : 'pointer-events-auto'} z-30 ${floor === 11 || floor === 12 ? 'bg-blue-600 bg-opacity-10' : ''}`"
+        style="animation-delay: 200ms"
         >1 этаж
+        
       </CustomButton>
-      <CustomButton
+        <div v-show="showSections.floor === 1 && showSections.state" class="absolute bg-white pointer-events-auto z-40 w-full h-full -top-48 -mt-6 show-up left-0 grid grid-cols-1 grid-rows-2">
+          <CustomButton :class="`text-[2.5rem] w-full h-full flex items-center justify-center shadow-none ${floor === 11 ? 'bg-blue-600 bg-opacity-10' : ''}`" @click="showSections.state = false; floor = 11">1 корпус</CustomButton>
+          <CustomButton :class="`text-[2.5rem] w-full h-full flex items-center justify-center shadow-none ${floor === 12 ? 'bg-blue-600 bg-opacity-10' : ''}`" @click="showSections.state = false; floor = 12">2 корпус</CustomButton>
+        </div>
+      </div>
+
+      <div class="w-full h-full relative">
+        <CustomButton
         big
-        active
-        @click="floor = 2"
-        :class="`show-left ${floor === 2 ? 'bg-black bg-opacity-10' : ''}`"
+        :active="false"
+        @click="showSections.floor = 2; showSections.state = true;"
+        :class="`show-left w-full h-full ${showSections.floor === 2 && showSections.state === true ? 'pointer-events-none' : 'pointer-events-auto'} z-30 ${floor === 21 || floor === 22 ? 'bg-blue-600 bg-opacity-10' : ''}`"
         style="animation-delay: 200ms"
         >2 этаж
+        
       </CustomButton>
+        <div v-show="showSections.floor === 2 && showSections.state" class="absolute bg-white pointer-events-auto z-40 w-full h-full -top-48 -mt-6 show-up left-0 grid grid-cols-1 grid-rows-2">
+          <CustomButton :class="`text-[2.5rem] w-full h-full flex items-center justify-center shadow-none ${floor === 21 ? 'bg-blue-600 bg-opacity-10' : ''}`" @click="showSections.state = false; floor = 21;">1 корпус</CustomButton>
+          <CustomButton :class="`text-[2.5rem] w-full h-full flex items-center justify-center shadow-none ${floor === 22 ? 'bg-blue-600 bg-opacity-10' : ''}`" @click="showSections.state = false; floor = 22;">2 корпус</CustomButton>
+        </div>
+      </div>
+     
       <CustomButton
         big
         active
-        @click="floor = 3"
+        @click="floor = 3; showSections.state = false"
         style="animation-delay: 300ms"
-        :class="`show-left ${floor === 3 ? 'bg-black bg-opacity-10' : ''}`"
+        :class="`show-left ${floor === 3 ? 'bg-blue-600 bg-opacity-10' : ''}`"
         >3 этаж
       </CustomButton>
       <CustomButton
         big
         active
-        @click="floor = 4"
-        :class="`show-left ${floor === 4 ? 'bg-black bg-opacity-10' : ''}`"
+        @click="floor = 4; showSections.state = false"
+        :class="`show-left ${floor === 4 ? 'bg-blue-600 bg-opacity-10' : ''}`"
         style="animation-delay: 400ms"
         >4 этаж
       </CustomButton>
@@ -131,6 +258,15 @@ import MapMark from "../components/mapMark.vue";
 import CustomButton from "../components/CustomButton.vue";
 
 const floor = ref<number>(3);
+
+const showSections = reactive<{
+  state: boolean,
+  floor: number
+}>({
+  state: false,
+  floor: 2
+})
+
 const info = reactive<{
   state: boolean,
   name: string,

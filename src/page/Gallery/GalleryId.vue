@@ -17,9 +17,9 @@
             images.photos.length / 2
           )"
           :key="index"
-          :src="image"
+          :src="image.split('/')[6] !== '' ? image : ''"
           :alt="image.split('/')[6]"
-          class="show h-full w-full rounded-lg rounded-lg object-cover object-center shadow-lg"
+          :class="image.split('/')[6] !== '' ? 'show h-full w-full rounded-lg object-cover object-center shadow-lg' : ''"
           :style="`animation-delay: ${10 * index}ms`"
         />
       </div>
@@ -32,7 +32,7 @@
           :key="index"
           :src="image"
           :alt="image.split('/')[6]"
-          class="show h-full w-full rounded-lg rounded-lg object-cover object-center shadow-lg"
+          class="show h-full w-full rounded-lg object-cover object-center shadow-lg"
           :style="`animation-delay: ${10 * index}ms`"
         />
       </div>

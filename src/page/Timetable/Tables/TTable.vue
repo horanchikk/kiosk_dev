@@ -71,10 +71,4 @@ function weekIsEmpty(week: any) {
   return emptyLessons.length > 0 ? true : false;
 };
 
-watch(
-  () => data.value,
-  () => {
-    console.log(data.value);
-  }
-);
 </script>
