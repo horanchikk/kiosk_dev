@@ -9,7 +9,7 @@
     </div>
   </div>
   <div
-    class="scrollbar-0 grid h-full w-full grid-cols-2 flex-col gap-10 overflow-y-scroll px-5"
+    class="scrollbar-0 grid h-full w-full grid-cols-2 flex-col gap-10 overflow-y-scroll p-10"
     v-else
   >
     <FeedBlock
