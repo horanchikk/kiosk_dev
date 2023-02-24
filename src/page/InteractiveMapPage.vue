@@ -95,7 +95,24 @@
 
       <!-- Section 2 -->
       <div class="relative h-full flex flex-col items-center justify-center" v-show="floor === 22">
-        <p class="text-6xl font-bold">Необходим план в формате .svg</p>
+        <div
+          class="absolute flex flex-col h-full w-full py-48"
+        >
+          <section class="h-[740px] w-full flex items-center justify-center">
+              <MapMark unclickable>Актовый зал</MapMark>
+          </section>
+          <section class="h-[300px] w-full grid grid-rows-1 grid-cols-2">
+              <div class="w-full h-full flex items-center justify-end">
+                <MapMark unclickable>Кабинет робототехники</MapMark>
+              </div>
+              <div></div>
+          </section>
+          <section class="h-[300px] w-full"></section>
+          <section class="flex-auto flex items-center justify-center">
+            <MapMark unclickable>Спортивный зал</MapMark>
+          </section>
+        </div>
+        <img src="../assets/floors/2floorGYM.svg" class="h-full" alt="2 floor" />
       </div>
       
       <!-- Floor 3 -->
