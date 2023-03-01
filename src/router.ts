@@ -24,6 +24,10 @@ import GalleryId from "./page/Gallery/GalleryId.vue";
 // Interactive map of college page
 import InteractiveMapPage from "./page/InteractiveMapPage.vue";
 
+// Documents page
+import DocPage from "./page/DocPage.vue";
+
+
 const routes = [
   {
     path: "/",
@@ -34,6 +38,11 @@ const routes = [
     path: "/feed",
     component: FeedPage,
     name: "Новости",
+  },
+  {
+    path: "/documents",
+    component: DocPage,
+    name: "Документы",
   },
   {
     path: "/about",

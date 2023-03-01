@@ -44,9 +44,9 @@
     </section>
 
     </div>
+    
     <div v-else class="w-full h-full text-8xl font-bold flex items-center justify-center">
-    <p>🎊 Занятий на неделе нет 🎊</p>
-
+      <p>🎊 Занятий на неделе нет 🎊</p>
     </div>
 
   </main>

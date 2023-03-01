@@ -134,9 +134,21 @@
           alt: 'Интерактивная карта',
         }"
         link="/interactive"
-        class="show col-span-3 gap-5 text-[90px]"
+        class="show col-span-2 gap-5 text-[90px]"
         style="animation-delay: 400ms"
         >Интерактивная карта
+      </CustomButton>
+      <CustomButton
+        big
+        col
+        :img="{
+          src: './document.svg',
+          alt: 'Документы',
+        }"
+        link="/documents"
+        class="show text-[90px]"
+        style="animation-delay: 300ms"
+        >Документы
       </CustomButton>
       <CustomButton
         big
